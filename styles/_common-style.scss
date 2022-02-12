@@ -1,0 +1,159 @@
+$highlite-yellow-text: #FFC700;
+$blue-color: #0499DD;
+
+* {
+   box-sizing: border-box;
+}
+
+body,
+a,
+button {
+   font-family: 'Montserrat', sans-serif;
+   margin: 0;
+   font-size: 14px;
+   font-weight: 500;
+   color: #fff;
+   text-decoration: none;
+   overflow-x: hidden;
+}
+
+.align-center {
+   display: flex;
+   align-items: center;
+}
+
+.content-space-between {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.header {
+   height: 109px;
+
+   .nav-link~.nav-link {
+      margin-left: 20px;
+   }
+}
+
+.container {
+   margin: auto;
+   max-width: 1120px;
+}
+
+.highlite {
+   color: $highlite-yellow-text;
+}
+
+.description {
+   color: #000;
+}
+
+.basic-button {
+   cursor: pointer;
+   display: inline-block;
+   text-align: center;
+   font-weight: bold;
+   border: 0;
+   background: linear-gradient(92.71deg, #0499DD 0%, #17C1BC 100%);
+   border-radius: 60px;
+}
+
+.container-title {
+   margin-bottom: 90px;
+
+   .view-all {
+      color: #000;
+      font-size: 12px;
+      text-decoration: underline;
+      margin-right: 0;
+   }
+}
+
+.title-content {
+   color: $blue-color;
+   font-weight: bold;
+   font-size: 24px;
+}
+
+.cards-slider {
+   position: absolute;
+   max-width: auto;
+   // max-width: calc(100vw - (100vw - 1120px) / 2 - 11px);
+   overflow: hidden;
+
+   .cards {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 40px;
+      transition: all ease 1s;
+   }
+
+   .switch {
+      gap: 50px;
+
+      .button-arrow {
+         width: 24px;
+         height: 43px;
+         background-color: transparent;
+         background-position: center;
+         border: 0;
+         cursor: pointer;
+      }
+
+      .previous {
+         background-image: url(/sources/image/prev.svg);
+         margin-right: 30px;
+      }
+
+      .next {
+         background-image: url(/sources/image/next-col.svg);
+      }
+
+      .slider-line {
+         flex-grow: 0.9;
+         height: 2px;
+         max-width: 982px;
+         min-width: 982px;
+         background-color: #D4D4D4;
+
+         .slide {
+            cursor: pointer;
+            background-color: $blue-color;
+            width: 163px;
+            height: 2px;
+         }
+      }
+   }
+}
+
+.types-grid {
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-template-rows: 1fr 1fr;
+   grid-gap: 40px 20px;
+   margin-top: 90px;
+
+   .grid-card {
+      display: flex;
+
+      .img-exc-type {
+         margin-right: 20px;
+         width: 75px;
+         height: 75px;
+      }
+
+      & span {
+         font-weight: bold;
+         font-size: 18px;
+         color: $blue-color;
+         line-height: 22px;
+      }
+
+      & p {
+         max-width: 455px;
+         margin-top: 10px;
+      }
+   }
+}
