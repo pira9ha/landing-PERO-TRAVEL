@@ -121,12 +121,12 @@ p {
 }
 
 .switch .previous {
-  background-image: url(/sources/image/prev.svg);
+  background-image: url(../sources/image/prev.svg);
   margin-right: 30px;
 }
 
 .switch .next {
-  background-image: url(/sources/image/next-col.svg);
+  background-image: url(../sources/image/next-col.svg);
 }
 
 .switch .slider-line {
@@ -219,7 +219,7 @@ p {
     list-style-type: none;
     width: 40px;
     height: 5px;
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 10px;
   }
   .header .open-menu {
@@ -237,7 +237,7 @@ p {
     top: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(92.71deg, #0499DD 0%, #17C1BC 100%);
+    background: linear-gradient(92.71deg, #0499dd 0%, #17c1bc 100%);
     z-index: 1;
     -webkit-transition: all ease 500ms;
     transition: all ease 500ms;
@@ -252,7 +252,7 @@ p {
     height: 60px;
   }
   .header .open-menu .cross-stand-alone:before, .header .open-menu .cross-stand-alone:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 29px;
     left: 0;
@@ -333,7 +333,7 @@ p {
 
 .section-width .line-text {
   margin-top: -11px;
-  background-image: url(/sources/image/PEROTRAVEL.png);
+  background-image: url(sources/image/PEROTRAVEL.png);
   background-repeat: no-repeat;
   height: 110px;
 }
@@ -341,7 +341,7 @@ p {
 @media screen and (max-width: 1440px) and (min-width: 768px) {
   .section-width .line-text {
     margin-top: 12px;
-    background-image: url(/sources/image/PEROTRAVEL_small.png);
+    background-image: url(sources/image/PEROTRAVEL_small.png);
     background-repeat: no-repeat;
     height: 172px;
   }
@@ -349,7 +349,7 @@ p {
 
 .section-width .color-text {
   position: absolute;
-  background-image: url(/sources/image/вместе_с.png);
+  background-image: url(sources/image/вместе_с.png);
   background-repeat: no-repeat;
   height: 64px;
   width: 151px;
@@ -359,7 +359,7 @@ p {
 
 @media screen and (max-width: 1440px) and (min-width: 768px) {
   .section-width .color-text {
-    background-image: url(/sources/image/вместе_с_small.png);
+    background-image: url(sources/image/вместе_с_small.png);
     background-repeat: no-repeat;
     height: 48px;
     width: 114px;
@@ -493,7 +493,7 @@ p {
   margin-bottom: 10px;
   font-size: 14px;
   line-height: 19px;
-  color: #FFC700;
+  color: #ffc700;
 }
 
 .excursions .exc-card .desc .desc-numbers {
@@ -548,7 +548,7 @@ p {
 .about-us .description-card {
   width: 459px;
   height: 479px;
-  background: #EDEDED;
+  background: #ededed;
   border-radius: 10px;
   padding: 0 68px;
   padding-top: 61px;
@@ -625,7 +625,7 @@ p {
 .exc-types .types-grid .grid-card span {
   font-weight: bold;
   font-size: 18px;
-  color: #0499DD;
+  color: #0499dd;
   line-height: 22px;
 }
 
@@ -668,7 +668,7 @@ p {
 }
 
 .gallery .gallery-img-1 {
-  background-image: url(/sources/image/gallery/g-elem-1.png);
+  background-image: url(sources/image/gallery/g-elem-1.png);
   -ms-grid-row: 1;
   grid-row: 1;
   -ms-grid-column: 1;
@@ -677,7 +677,7 @@ p {
 }
 
 .gallery .gallery-img-2 {
-  background-image: url(/sources/image/gallery/g-elem-2.png);
+  background-image: url(sources/image/gallery/g-elem-2.png);
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   grid-row: 1/4;
@@ -686,7 +686,7 @@ p {
 }
 
 .gallery .gallery-img-3 {
-  background-image: url(/sources/image/gallery/g-elem-3.png);
+  background-image: url(sources/image/gallery/g-elem-3.png);
   -ms-grid-row: 1;
   grid-row: 1;
   -ms-grid-column: 4;
@@ -694,7 +694,7 @@ p {
 }
 
 .gallery .gallery-img-4 {
-  background-image: url(/sources/image/gallery/g-elem-4.png);
+  background-image: url(sources/image/gallery/g-elem-4.png);
   -ms-grid-row: 1;
   grid-row: 1;
   -ms-grid-column: 5;
@@ -702,7 +702,7 @@ p {
 }
 
 .gallery .gallery-img-5 {
-  background-image: url(/sources/image/gallery/g-elem-5.png);
+  background-image: url(sources/image/gallery/g-elem-5.png);
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   grid-row: 2/4;
@@ -711,7 +711,7 @@ p {
 }
 
 .gallery .gallery-img-6 {
-  background-image: url(/sources/image/gallery/g-elem-6.png);
+  background-image: url(sources/image/gallery/g-elem-6.png);
   -ms-grid-row: 2;
   grid-row: 2;
   -ms-grid-column: 2;
@@ -719,7 +719,7 @@ p {
 }
 
 .gallery .gallery-img-7 {
-  background-image: url(/sources/image/gallery/g-elem-7.png);
+  background-image: url(sources/image/gallery/g-elem-7.png);
   -ms-grid-row: 3;
   grid-row: 3;
   -ms-grid-column: 2;
@@ -727,7 +727,7 @@ p {
 }
 
 .gallery .gallery-img-8 {
-  background-image: url(/sources/image/gallery/g-elem-8.png);
+  background-image: url(sources/image/gallery/g-elem-8.png);
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   grid-row: 2/4;
@@ -751,8 +751,8 @@ p {
     grid-gap: 20px;
   }
   .gallery .img-hover:hover {
-    -webkit-box-shadow: 0 0 0 5 #FFC700;
-            box-shadow: 0 0 0 5 #FFC700;
+    -webkit-box-shadow: 0 0 0 5 #ffc700;
+            box-shadow: 0 0 0 5 #ffc700;
   }
   .gallery .gallery-img-1,
   .gallery .gallery-img-5,
@@ -802,12 +802,12 @@ p {
   padding: 38px 45px;
   width: 740px;
   height: 322px;
-  background-color: #EDEDED;
+  background-color: #ededed;
   border-radius: 10px;
   -webkit-transition: all ease 1s;
   transition: all ease 1s;
   margin-right: 20px;
-  background-image: url(/sources/image/review/”.svg);
+  background-image: url(sources/image/review/”.svg);
   background-repeat: no-repeat;
   background-position: 525px 150px;
 }
@@ -905,7 +905,7 @@ p {
 
 .form-container .contact-data .yellow-text {
   display: block;
-  color: #FFC700;
+  color: #ffc700;
   margin-top: 6px;
   margin-bottom: 38px;
 }
@@ -917,7 +917,7 @@ p {
   font-family: inherit;
   padding-bottom: 5px;
   background-color: transparent;
-  border-bottom: 1px solid #FFFFFFbe;
+  border-bottom: 1px solid #ffffffbe;
 }
 
 .form-container .contact-data input::-webkit-input-placeholder {
@@ -973,7 +973,7 @@ p {
 }
 
 footer {
-  background-color: #EDEDED;
+  background-color: #ededed;
 }
 
 footer .flex-row {
