@@ -22,6 +22,20 @@
          <a href="#" class="nav-link">Экскурсии</a>
          <a href="#" class="nav-link">Личный кабинет</a>
       </nav>
+      <div class="menu-button">
+         <li></li>
+         <li></li>
+         <li></li>
+      </div>
+
+      <div class="open-menu">
+         <span class="cross-stand-alone"></span>
+         <div class="open-menu__navigation-panel">
+            <a href="#" class="highlite">Главная</a>
+            <a href="#">Экскурсии</a>
+            <a href="#">Личный кабинет</a>
+         </div>
+      </div>
    </header>
 
    <main>
@@ -35,17 +49,17 @@
       <div class="hero section-width container">
          <div class="text">
             <span class="fill-text">Путешествуй</span>
-            <img class="color-text" alt="вместе с" src="/sources/image/вместе с.png"></img>
-            <img class="line-text" alt="PERO TRAVEL" src="/sources/image/PERO TRAVEL.png"></img>
+            <div class="color-text"></div>
+            <div class="line-text"></div>
          </div>
          <a href="#" class="basic-button">К экскурсиям
             <img src="/sources/image/Arrow 1.svg" alt="" class="arrow">
          </a>
-         <div class="social-media">
-            <a href="#" class="social-media__icon bigger-icon">
+         <div class="social-media content-space-between">
+            <a href="#" class="social-media__icon">
                <img src="/sources/image/vk 1.svg" alt="vk">
             </a>
-            <a href="#" class="social-media__icon bigger-icon">
+            <a href="#" class="social-media__icon">
                <img src="/sources/image/inst 1.svg" alt="instagram">
             </a>
             <a href="#" class="social-media__icon">
@@ -53,21 +67,17 @@
             </a>
          </div>
          <div class="videos-gallery">
-            <div class="slider">
-               <button class="play">
-                  <img src="/sources/image/play.png" alt="" class="play-button">
-               </button>
-               <img src="/sources/image/video-1-cover.jpg" alt="LOR" class="video-cover">
-               <img src="/sources/image/video-3-cover.jpg" alt="Landscape" class="video-cover">
-               <img src="/sources/image/video-4-cover.jpg" alt="Nature" class="video-cover">
-               <img src="/sources/image/video-2-cover.jpg" alt="China" class="video-cover">
-            </div>
+            <img src="/sources/image/play.png" alt="" class="play-button">
+            <img src="/sources/image/video-1-cover.jpg" alt="LOR" class="video-cover">
+            <img src="/sources/image/video-3-cover.jpg" alt="Landscape" class="video-cover">
+            <img src="/sources/image/video-4-cover.jpg" alt="Nature" class="video-cover">
+            <img src="/sources/image/video-2-cover.jpg" alt="China" class="video-cover">
          </div>
       </div>
       <!-- /hero-section -->
 
       <!-- excursions-slider -->
-      <div class="excursions container">
+      <div class="excursions container container--padding-top">
          <div class="container-title content-space-between">
             <span class="title-content">Популярные экскурсии</span>
             <a href="#" class="view-all">Смотреть все</a>
@@ -76,7 +86,10 @@
             <div class="cards">
                <!-- 1 -->
                <div class="exc-card">
-                  <img src="/sources/image/exc-1.png" alt="">
+                  <div class="exc-card__background align-center">
+                     <div class="shade-gradient"></div>
+                     <img src="/sources/image/exc-1.png" alt="">
+                  </div>
                   <div class="desc">
                      <span class="exc-type">Автобусный тур</span>
                      <span class="exc-name">Обзорная по Сочи (из Адлера)</span>
@@ -105,7 +118,10 @@
 
                <!-- 2 -->
                <div class="exc-card">
-                  <img src="/sources/image/exc-2.png" alt="">
+                  <div class="exc-card__background align-center">
+                     <div class="shade-gradient"></div>
+                     <img src="/sources/image/exc-2.png" alt="">
+                  </div>
                   <div class="desc">
                      <span class="exc-type">Конный тур</span>
                      <span class="exc-name">Конные прогулки</span>
@@ -132,7 +148,10 @@
 
                <!-- 3 -->
                <div class="exc-card">
-                  <img src="/sources/image/exc-3.png" alt="">
+                  <div class="exc-card__background align-center">
+                     <div class="shade-gradient"></div>
+                     <img src="/sources/image/exc-3.png" alt="">
+                  </div>
                   <div class="desc">
                      <span class="exc-type">Квадротур</span>
                      <span class="exc-name">Пасть дракона</span>
@@ -160,7 +179,10 @@
 
                <!-- 4 -->
                <div class="exc-card">
-                  <img src="/sources/image/exc-4.png" alt="">
+                  <div class="exc-card__background align-center">
+                     <div class="shade-gradient"></div>
+                     <img src="/sources/image/exc-4.png" alt="">
+                  </div>
                   <div class="desc">
                      <span class="exc-type">Автобусный тур</span>
                      <span class="exc-name">Женский монастырь</span>
@@ -188,7 +210,10 @@
 
                <!-- 5 -->
                <div class="exc-card">
-                  <img src="/sources/image/exc-5.png" alt="">
+                  <div class="exc-card__background align-center">
+                     <div class="shade-gradient"></div>
+                     <img src="/sources/image/exc-5.png" alt="">
+                  </div>
                   <div class="desc">
                      <span class="exc-type">Автобусный тур</span>
                      <span class="exc-name">Женский монастырь</span>
@@ -216,7 +241,10 @@
 
                <!-- 6 -->
                <div class="exc-card">
-                  <img src="/sources/image/exc-6.png" alt="">
+                  <div class="exc-card__background align-center">
+                     <div class="shade-gradient"></div>
+                     <img src="/sources/image/exc-6.png" alt="">
+                  </div>
                   <div class="desc">
                      <span class="exc-type">Автобусный тур</span>
                      <span class="exc-name">Женский монастырь</span>
@@ -244,23 +272,22 @@
 
             </div>
 
-            <div class="switch align-center">
-               <div class="buttons">
-                  <button class="previous button-arrow"></button>
-                  <button class="next button-arrow"></button>
-               </div>
-
-               <div class="slider-line">
-                  <div class="slide"></div>
-               </div>
+         </div>
+         <div class="switch align-center">
+            <div class="buttons">
+               <button class="previous button-arrow"></button>
+               <button class="next button-arrow"></button>
             </div>
 
+            <div class="slider-line">
+               <div class="slide"></div>
+            </div>
          </div>
       </div>
       <!-- /excursions-slider -->
 
       <!-- about-us -->
-      <div class="about-us container align-center">
+      <div class="about-us container align-center container--padding-top">
          <img src="/sources/image/about-us-img.png" alt="" class="bacground-image">
          <div class="description-card">
             <span class="title-content">О нас</span>
@@ -286,7 +313,7 @@
       <!-- /about-us -->
 
       <!-- exc-types-grid -->
-      <div class="exc-types container">
+      <div class="exc-types container container--padding-top">
          <span class="title-content">Виды экскурсий</span>
          <div class="types-grid">
             <!-- 1 -->
@@ -353,26 +380,34 @@
       <!-- /exc-types-grid -->
 
       <!-- gallery -->
-      <div class="gallery-container container">
+      <div class="gallery-container container container--padding-top">
          <div class="container-title content-space-between">
             <span class="title-content">Галерея</span>
             <a href="#" class="view-all">Смотреть все</a>
          </div>
          <div class="gallery">
-            <img src="/sources/image/gallery/g-elem-1.png" alt="" class="gallery-img-1 img-hover">
-            <img src="/sources/image/gallery/g-elem-2.png" alt="" class="gallery-img-2 img-hover">
-            <img src="/sources/image/gallery/g-elem-3.png" alt="" class="gallery-img-3 img-hover">
-            <img src="/sources/image/gallery/g-elem-4.png" alt="" class="gallery-img-4 img-hover">
-            <img src="/sources/image/gallery/g-elem-5.png" alt="" class="gallery-img-5 img-hover">
-            <img src="/sources/image/gallery/g-elem-6.png" alt="" class="gallery-img-6 img-hover">
-            <img src="/sources/image/gallery/g-elem-7.png" alt="" class="gallery-img-7 img-hover">
-            <img src="/sources/image/gallery/g-elem-8.png" alt="" class="gallery-img-8 img-hover">
+            <div class="gallery-img-1 bg-pos">
+            </div>
+            <div class="gallery-img-2 bg-pos">
+            </div>
+            <div class="gallery-img-3 bg-pos">
+            </div>
+            <div class=" gallery-img-4 bg-pos">
+            </div>
+            <div class=" gallery-img-5 bg-pos">
+            </div>
+            <div class="gallery-img-6 bg-pos">
+            </div>
+            <div class="gallery-img-7 bg-pos">
+            </div>
+            <div class="gallery-img-8 bg-pos">
+            </div>
          </div>
       </div>
       <!-- /gallery -->
 
       <!-- reviews -->
-      <div class="reviews section container">
+      <div class="reviews section container container--padding-top">
          <div class="container-title content-space-between">
             <span class="title-content">Отзывы</span>
             <a href="#" class="view-all">Смотреть все</a>
@@ -442,15 +477,16 @@
                </div>
 
             </div>>
-            <div class="switch align-center">
-               <div class="buttons">
-                  <button class="previous button-arrow"></button>
-                  <button class="next button-arrow"></button>
-               </div>
 
-               <div class="slider-line">
-                  <div class="slide"></div>
-               </div>
+         </div>
+         <div class="switch align-center">
+            <div class="buttons">
+               <button class="previous button-arrow"></button>
+               <button class="next button-arrow"></button>
+            </div>
+
+            <div class="slider-line">
+               <div class="slide"></div>
             </div>
          </div>
       </div>
@@ -482,34 +518,34 @@
       <!-- footer -->
       <footer>
          <div class="flex-row container align-center">
-            <div class="edge-elem">
+            <div class="edge-elem align-center">
                <img src="/sources/image/цветное-лого.svg" alt="Логотип" class="logo">
                <nav class="direction-column">
-                  <a href="#" class="nav-link description">Главная</a>
-                  <a href="#" class="nav-link description">Экскурсии</a>
-                  <a href="#" class="nav-link description">Личный кабинет</a>
+                  <a href="#" class="description">Главная</a>
+                  <a href="#" class="description margin-top-bottom">Экскурсии</a>
+                  <a href="#" class="description">Личный кабинет</a>
                </nav>
             </div>
 
-            <div class="align-center edge-elem">
+            <div class="edge-elem align-center">
                <div class="description direction-column desc-number">
                   <span>
-                     <img src="/sources/image/whats-up.svg" alt="Whats up">
+                     <img class="icon-img" src="/sources/image/whats-up.svg" alt="Whats up">
                      +7 964 944 18 74
                   </span>
                   <span>
-                     <img src="/sources/image/telegram.svg" alt="Number">
+                     <img class="icon-img" src="/sources/image/telegram.svg" alt="Number">
                      +7 918 919 98 28
                   </span>
                   <span>
-                     <img src="/sources/image/telegram.svg" alt="Chat-bot">
+                     <img class="icon-img" src="/sources/image/telegram.svg" alt="Chat-bot">
                      Телеграм-бот PeroTravel
                   </span>
                </div>
 
                <div>
                   <span class="description desc-number mail">
-                     <img src="/sources/image/mail 1.svg" alt="Mail">
+                     <img class="icon-img" src="/sources/image/mail 1.svg" alt="Mail">
                      office@perotravel.ru
                   </span>
                   <div class="color-social-media align-center">

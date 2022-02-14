@@ -1,5 +1,6 @@
 $highlite-yellow-text: #FFC700;
 $blue-color: #0499DD;
+@import 'media-styles';
 
 * {
    box-sizing: border-box;
@@ -17,6 +18,10 @@ button {
    overflow-x: hidden;
 }
 
+p {
+   margin: 1em 0 0 0;
+}
+
 .align-center {
    display: flex;
    align-items: center;
@@ -28,17 +33,17 @@ button {
    justify-content: space-between;
 }
 
-.header {
-   height: 109px;
-
-   .nav-link~.nav-link {
-      margin-left: 20px;
-   }
-}
-
 .container {
    margin: auto;
    max-width: 1120px;
+
+   @include _768 {
+      max-width: 610px;
+   }
+}
+
+.container--padding-top {
+   padding-top: 150px;
 }
 
 .highlite {
@@ -78,82 +83,52 @@ button {
 
 .cards-slider {
    position: absolute;
-   max-width: auto;
    // max-width: calc(100vw - (100vw - 1120px) / 2 - 11px);
    overflow: hidden;
 
    .cards {
-      position: relative;
       display: flex;
-      flex-direction: row;
-      margin-bottom: 40px;
       transition: all ease 1s;
-   }
-
-   .switch {
-      gap: 50px;
-
-      .button-arrow {
-         width: 24px;
-         height: 43px;
-         background-color: transparent;
-         background-position: center;
-         border: 0;
-         cursor: pointer;
-      }
-
-      .previous {
-         background-image: url(/sources/image/prev.svg);
-         margin-right: 30px;
-      }
-
-      .next {
-         background-image: url(/sources/image/next-col.svg);
-      }
-
-      .slider-line {
-         flex-grow: 0.9;
-         height: 2px;
-         max-width: 982px;
-         min-width: 982px;
-         background-color: #D4D4D4;
-
-         .slide {
-            cursor: pointer;
-            background-color: $blue-color;
-            width: 163px;
-            height: 2px;
-         }
-      }
    }
 }
 
-.types-grid {
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   grid-template-rows: 1fr 1fr;
-   grid-gap: 40px 20px;
-   margin-top: 90px;
+.switch {
+   position: absolute;
+   bottom: 0;
+   margin-bottom: 150px;
+   gap: 50px;
 
-   .grid-card {
-      display: flex;
+   .button-arrow {
+      width: 24px;
+      height: 43px;
+      background-color: transparent;
+      background-position: center;
+      border: 0;
+      cursor: pointer;
+   }
 
-      .img-exc-type {
-         margin-right: 20px;
-         width: 75px;
-         height: 75px;
-      }
+   .previous {
+      background-image: url(/sources/image/prev.svg);
+      margin-right: 30px;
+   }
 
-      & span {
-         font-weight: bold;
-         font-size: 18px;
-         color: $blue-color;
-         line-height: 22px;
-      }
+   .next {
+      background-image: url(/sources/image/next-col.svg);
+   }
 
-      & p {
-         max-width: 455px;
-         margin-top: 10px;
+   .slider-line {
+      position: absolute;
+      margin-left: 138px;
+      flex-grow: 0.9;
+      height: 2px;
+      width: 982px;
+      background-color: #D4D4D4;
+
+      .slide {
+         cursor: pointer;
+         background-color: $blue-color;
+         width: 163px;
+         height: 2px;
       }
    }
 }

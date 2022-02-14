@@ -1,43 +1,13 @@
+//#region bg-video
 let bgVideo = document.querySelector('.video');
-let videos = [
+const videos = [
    '/sources/video/LOR.mp4',
    '/sources/video/Landscape.mp4',
    '/sources/video/nature.mp4',
    '/sources/video/china.mp4'
 ];
 
-let playPauseButt = document.querySelector('.play');
-let slidesVideoCover = document.querySelectorAll('.video-cover');
-let slider = [];
-
-let n = 1;
-let index = 0;
-let position = 0;
-
-for (let i = 0; i < slidesVideoCover.length; i++) {
-   slider[i] = slidesVideoCover[i].src;
-   slidesVideoCover[i].remove();
-}
-
-let i = 0;
-while (i < 4) {
-   drawCovers();
-   i++;
-}
-
-let clickCount = 0;
-playPauseButt.onclick = () => {
-   let buttImg = playPauseButt.querySelector('.play-button');
-   clickCount += 1;
-   if (clickCount == 2) {
-      bgVideo.play();
-      clickCount = 0;
-      buttImg.src = '/sources/image/play.png';
-   } else {
-      bgVideo.pause();
-      buttImg.src = '/sources/image/play-paused.png';
-   }
-}
+let playPauseButt = document.querySelector('.play-button');
 
 bgVideo.addEventListener('ended', function () {
 
@@ -50,6 +20,61 @@ bgVideo.addEventListener('ended', function () {
    }, 1000);
    n++;
 })
+
+let clickCount = 0;
+playPauseButt.onclick = () => {
+
+   clickCount += 1;
+   if (clickCount == 2) {
+      bgVideo.play();
+      clickCount = 0;
+      playPauseButt.src = '/sources/image/play.png';
+   } else {
+      bgVideo.pause();
+      playPauseButt.src = '/sources/image/play-paused.png';
+   }
+}
+//#endregion
+
+//#region video-gallery
+let slidesVideoCover = document.querySelectorAll('.video-cover');
+let widthCover = slidesVideoCover[0].scrollWidth + 20;
+let slider = [];
+
+let n = 1;
+let index = 0;
+let position = 0;
+
+for (let i = 0; i < slidesVideoCover.length; i++) {
+   slider[i] = slidesVideoCover[i].src;
+   slidesVideoCover[i].remove();
+}
+
+function draw() {
+   let i = 0;
+   while (i < 4) {
+      drawCovers();
+      i++;
+   }
+}
+
+draw();
+
+function drawCovers() {
+   position = position == 4 ? 2 : position;
+   index = index == slider.length ? 0 : index;
+   let img = document.createElement('img');
+   img.src = slider[index];
+   img.style.left = position * widthCover + 'px';
+   img.classList.add('video-cover');
+   document.querySelector('.videos-gallery').appendChild(img);
+   index++;
+   position++;
+}
+//#endregion
+
+//#region sliders
+const excursionCardImages = [];
 
 let switchContainer = document.querySelectorAll('.switch');
 let buttNext = document.querySelectorAll('.next');
@@ -69,18 +94,6 @@ for (let i = 0; i < switchContainer.length; i++) {
    batons[i].lastElementChild.onclick = () => {
       leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i);
    }
-}
-
-function drawCovers() {
-   position = position == 4 ? 2 : position;
-   index = index == slider.length ? 0 : index;
-   let img = document.createElement('img');
-   img.src = slider[index];
-   img.style.left = position * 380 + 'px';
-   img.classList.add('video-cover');
-   document.querySelector('.videos-gallery').appendChild(img);
-   index++;
-   position++;
 }
 
 function leftOffset(selector, elem = document) {
@@ -128,13 +141,17 @@ function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
    marginCard[marginIndex] += width;
    cards.style.marginLeft = `${marginCard[marginIndex]}px`;
 }
+//#endregion
 
+const btnMenuOpen = document.querySelector('.menu-button')
+const btnCloseMenu = document.querySelector('.cross-stand-alone')
 
+btnCloseMenu.addEventListener('click', function () {
+   let menu = document.querySelector('.open-menu');
+   menu.style.transform = 'translateX(100%)';
+})
 
-
-// butt.addEventListener('onclick', function () {
-//    const cards = butt.parentElement.childNodes[1];
-//    leftOffset('.exc-card', cards);
-// });
-// console.log(butt.parentElement.childNodes[1].querySelectorAll('.exc-card')); // получаем все карточки для листания
-// console.log(butt.parentElement.childNodes[1].querySelectorAll('.exc-card')); // получаем все карточки для листания
+btnMenuOpen.addEventListener('click', function () {
+   let menu = document.querySelector('.open-menu');
+   menu.style.transform = 'translateX(0)';
+})
