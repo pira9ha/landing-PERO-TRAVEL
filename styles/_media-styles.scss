@@ -1,7 +1,11 @@
-@mixin _768 {
+@mixin _1440 {
    @media screen and (max-width: 1440px) {
       @content;
    }
 }
 
-@media screen and (max-width: 768px) {}
+@mixin _768 {
+   @media screen and (max-width: 630px) {
+      @content;
+   }
+}

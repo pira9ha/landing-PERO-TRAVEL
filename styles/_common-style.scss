@@ -36,8 +36,12 @@ p {
    margin: auto;
    max-width: 1120px;
 
-   @include _768 {
+   @include _1440 {
       max-width: 610px;
+   }
+
+   @include _768 {
+      max-width: 380px;
    }
 }
 
@@ -85,7 +89,7 @@ p {
    max-width: calc(100vw - (100vw - 1120px) / 2 - 11px);
    overflow: hidden;
 
-   @include _768 {
+   @include _1440 {
       max-width: calc(100vw - (100vw - 610px) / 2 - 11px);
    }
 
@@ -127,7 +131,7 @@ p {
       width: 982px;
       background-color: #D4D4D4;
 
-      @include _768 {
+      @include _1440 {
          width: 472px;
       }
 
