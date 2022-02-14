@@ -1,10 +1,10 @@
 //#region bg-video
 let bgVideo = document.querySelector('.video');
 const videos = [
-   '/sources/video/LOR.mp4',
-   '/sources/video/Landscape.mp4',
-   '/sources/video/nature.mp4',
-   '/sources/video/china.mp4'
+   '../sources/video/LOR.mp4',
+   '../sources/video/Landscape.mp4',
+   '../sources/video/nature.mp4',
+   '../sources/video/china.mp4'
 ];
 
 let playPauseButt = document.querySelector('.play-button');
@@ -28,10 +28,10 @@ playPauseButt.onclick = () => {
    if (clickCount == 2) {
       bgVideo.play();
       clickCount = 0;
-      playPauseButt.src = '/sources/image/play.png';
+      playPauseButt.src = '../sources/image/play.png';
    } else {
       bgVideo.pause();
-      playPauseButt.src = '/sources/image/play-paused.png';
+      playPauseButt.src = '../sources/image/play-paused.png';
    }
 }
 //#endregion
@@ -121,9 +121,9 @@ function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
    if (marginCard[marginIndex] - width < -(cards.childElementCount - 1) * width) {
       return;
    }
-   btnPrev.style.backgroundImage = 'url(/sources/image/prev-col.svg)';
+   btnPrev.style.backgroundImage = 'url(../sources/image/prev-col.svg)';
    if (marginCard[marginIndex] - width < -(cards.childElementCount - 2) * width) {
-      btnNext.style.backgroundImage = 'url(/sources/image/next.svg)';
+      btnNext.style.backgroundImage = 'url(../sources/image/next.svg)';
    }
    marginCard[marginIndex] += -width;
    cards.style.marginLeft = `${marginCard[marginIndex]}px`;
@@ -134,9 +134,9 @@ function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
    if (marginCard[marginIndex] + width > 0) {
       return;
    }
-   btnNext.style.backgroundImage = 'url(/sources/image/next-col.svg)';
+   btnNext.style.backgroundImage = 'url(../sources/image/next-col.svg)';
    if (marginCard[marginIndex] + width == 0) {
-      btnPrev.style.backgroundImage = 'url(/sources/image/prev.svg)';
+      btnPrev.style.backgroundImage = 'url(../sources/image/prev.svg)';
    }
    marginCard[marginIndex] += width;
    cards.style.marginLeft = `${marginCard[marginIndex]}px`;
