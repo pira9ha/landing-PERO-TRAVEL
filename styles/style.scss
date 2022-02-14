@@ -37,6 +37,10 @@ $font-bold: bold;
 .header {
    height: 109px;
 
+   .nav-link:hover {
+      color: $highlite-yellow-text;
+   }
+
    .nav-link~.nav-link {
       margin-left: 20px;
    }
@@ -126,8 +130,12 @@ $font-bold: bold;
             flex-direction: column;
             gap: 2em;
 
-            >a {
+            a {
                font-size: 36px;
+
+               &:hover {
+                  color: $highlite-yellow-text;
+               }
             }
          }
       }

@@ -37,7 +37,6 @@ playPauseButt.onclick = () => {
 
 //#region video-gallery
 let sliderVideoCovers = document.querySelector('.videos-gallery')
-let slider = [];
 
 let n = 1;
 let index = 0;
@@ -57,7 +56,6 @@ function leftOffset() {
       sliderVideoCovers.style.marginLeft = `0`;
 
    }, 600)
-   // }
 
 }
 //#endregion
@@ -84,7 +82,6 @@ for (let i = 0; i < switchContainer.length; i++) {
       leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i);
    }
 }
-
 
 function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
    const width = cards.childNodes[3].scrollWidth + 20;
@@ -113,6 +110,7 @@ function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
 }
 //#endregion
 
+//#region menu
 const btnMenuOpen = document.querySelector('.menu-button')
 const btnCloseMenu = document.querySelector('.cross-stand-alone')
 
@@ -125,3 +123,4 @@ btnMenuOpen.addEventListener('click', function () {
    let menu = document.querySelector('.open-menu');
    menu.style.transform = 'translateX(0)';
 })
+//#endregion

@@ -195,6 +195,10 @@ p {
   height: 109px;
 }
 
+.header .nav-link:hover {
+  color: #ffc700;
+}
+
 .header .nav-link ~ .nav-link {
   margin-left: 20px;
 }
@@ -298,8 +302,11 @@ p {
             flex-direction: column;
     gap: 2em;
   }
-  .header .open-menu .open-menu__navigation-panel > a {
+  .header .open-menu .open-menu__navigation-panel a {
     font-size: 36px;
+  }
+  .header .open-menu .open-menu__navigation-panel a:hover {
+    color: #ffc700;
   }
 }
 
