@@ -13,7 +13,6 @@ button {
   font-weight: 500;
   color: #fff;
   text-decoration: none;
-  overflow-x: hidden;
 }
 
 p {
@@ -93,7 +92,14 @@ p {
 
 .cards-slider {
   position: absolute;
+  max-width: calc(100vw - (100vw - 1120px) / 2 - 11px);
   overflow: hidden;
+}
+
+@media screen and (max-width: 1440px) and (min-width: 768px) {
+  .cards-slider {
+    max-width: calc(100vw - (100vw - 610px) / 2 - 11px);
+  }
 }
 
 .cards-slider .cards {
@@ -138,6 +144,12 @@ p {
   height: 2px;
   width: 982px;
   background-color: #D4D4D4;
+}
+
+@media screen and (max-width: 1440px) and (min-width: 768px) {
+  .switch .slider-line {
+    width: 472px;
+  }
 }
 
 .switch .slider-line .slide {
@@ -297,16 +309,6 @@ p {
   padding-top: 128px;
 }
 
-@media screen and (max-width: 1440px) and (min-width: 768px) {
-  .section-width {
-    height: 1003px;
-    padding-top: 210px;
-  }
-  .section-width .text {
-    margin-bottom: 90px;
-  }
-}
-
 .section-width .basic-button {
   width: 230px;
   height: 50px;
@@ -325,47 +327,21 @@ p {
   text-transform: uppercase;
 }
 
-@media screen and (max-width: 1440px) and (min-width: 768px) {
-  .section-width .fill-text {
-    font-size: 48px;
-  }
-}
-
 .section-width .line-text {
   margin-top: -11px;
-  background-image: url(sources/image/PEROTRAVEL.png);
+  background-image: url(../sources/image/PEROTRAVEL.png);
   background-repeat: no-repeat;
   height: 110px;
 }
 
-@media screen and (max-width: 1440px) and (min-width: 768px) {
-  .section-width .line-text {
-    margin-top: 12px;
-    background-image: url(sources/image/PEROTRAVEL_small.png);
-    background-repeat: no-repeat;
-    height: 172px;
-  }
-}
-
 .section-width .color-text {
   position: absolute;
-  background-image: url(sources/image/вместе_с.png);
+  background-image: url(../sources/image/вместе_с.png);
   background-repeat: no-repeat;
   height: 64px;
   width: 151px;
   top: 63px;
   right: 36px;
-}
-
-@media screen and (max-width: 1440px) and (min-width: 768px) {
-  .section-width .color-text {
-    background-image: url(sources/image/вместе_с_small.png);
-    background-repeat: no-repeat;
-    height: 48px;
-    width: 114px;
-    top: 46px;
-    right: 264px;
-  }
 }
 
 .section-width .social-media {
@@ -382,40 +358,37 @@ p {
   width: 30px;
 }
 
-.section-width .videos-gallery {
+.section-width .cover-container {
   position: relative;
-  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
   left: 59.5%;
-  height: 227px;
-  width: 100vw;
-  margin-top: 136px;
+  max-width: calc((100vw - 1120px) / 2 + (1120px - 59.5%) - 11px);
+  bottom: 0;
   overflow: hidden;
 }
 
-@media screen and (max-width: 1440px) and (min-width: 768px) {
-  .section-width .videos-gallery {
-    height: 187px;
-    margin-top: 225px;
-  }
+.section-width .videos-gallery {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  bottom: 0;
+  height: 227px;
+  margin-top: 136px;
+  -webkit-transition: all ease 600ms;
+  transition: all ease 600ms;
 }
 
 .section-width .videos-gallery .video-cover {
-  position: absolute;
-  top: 0;
-  left: 0;
   height: inherit;
   width: 360px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
-  -webkit-transition: all ease 1s;
-  transition: all ease 1s;
-}
-
-@media screen and (max-width: 1440px) and (min-width: 768px) {
-  .section-width .videos-gallery .video-cover {
-    width: 295px;
-  }
 }
 
 .section-width .videos-gallery .play-button {
@@ -429,6 +402,40 @@ p {
 }
 
 @media screen and (max-width: 1440px) and (min-width: 768px) {
+  .section-width {
+    height: 1003px;
+    padding-top: 210px;
+  }
+  .section-width .text {
+    margin-bottom: 90px;
+  }
+  .section-width .fill-text {
+    font-size: 48px;
+  }
+  .section-width .line-text {
+    margin-top: 12px;
+    background-image: url(../sources/image/PEROTRAVEL_small.png);
+    background-repeat: no-repeat;
+    height: 172px;
+  }
+  .section-width .color-text {
+    background-image: url(../sources/image/вместе_с_small.png);
+    background-repeat: no-repeat;
+    height: 48px;
+    width: 114px;
+    top: 46px;
+    right: 264px;
+  }
+  .section-width .cover-container {
+    max-width: calc((100vw - 610px) / 2 + (610px - 59.5%) - 11px);
+  }
+  .section-width .videos-gallery {
+    height: 187px;
+    margin-top: 225px;
+  }
+  .section-width .videos-gallery .video-cover {
+    width: 295px;
+  }
   .section-width .videos-gallery .play-button {
     left: calc(295px / 2 - 33px);
     top: calc(187px / 2 - 33px);
@@ -668,7 +675,7 @@ p {
 }
 
 .gallery .gallery-img-1 {
-  background-image: url(sources/image/gallery/g-elem-1.png);
+  background-image: url(../sources/image/gallery/g-elem-1.png);
   -ms-grid-row: 1;
   grid-row: 1;
   -ms-grid-column: 1;
@@ -677,7 +684,7 @@ p {
 }
 
 .gallery .gallery-img-2 {
-  background-image: url(sources/image/gallery/g-elem-2.png);
+  background-image: url(../sources/image/gallery/g-elem-2.png);
   -ms-grid-row: 1;
   -ms-grid-row-span: 3;
   grid-row: 1/4;
@@ -686,7 +693,7 @@ p {
 }
 
 .gallery .gallery-img-3 {
-  background-image: url(sources/image/gallery/g-elem-3.png);
+  background-image: url(../sources/image/gallery/g-elem-3.png);
   -ms-grid-row: 1;
   grid-row: 1;
   -ms-grid-column: 4;
@@ -694,7 +701,7 @@ p {
 }
 
 .gallery .gallery-img-4 {
-  background-image: url(sources/image/gallery/g-elem-4.png);
+  background-image: url(../sources/image/gallery/g-elem-4.png);
   -ms-grid-row: 1;
   grid-row: 1;
   -ms-grid-column: 5;
@@ -702,7 +709,7 @@ p {
 }
 
 .gallery .gallery-img-5 {
-  background-image: url(sources/image/gallery/g-elem-5.png);
+  background-image: url(../sources/image/gallery/g-elem-5.png);
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   grid-row: 2/4;
@@ -711,7 +718,7 @@ p {
 }
 
 .gallery .gallery-img-6 {
-  background-image: url(sources/image/gallery/g-elem-6.png);
+  background-image: url(../sources/image/gallery/g-elem-6.png);
   -ms-grid-row: 2;
   grid-row: 2;
   -ms-grid-column: 2;
@@ -719,7 +726,7 @@ p {
 }
 
 .gallery .gallery-img-7 {
-  background-image: url(sources/image/gallery/g-elem-7.png);
+  background-image: url(../sources/image/gallery/g-elem-7.png);
   -ms-grid-row: 3;
   grid-row: 3;
   -ms-grid-column: 2;
@@ -727,7 +734,7 @@ p {
 }
 
 .gallery .gallery-img-8 {
-  background-image: url(sources/image/gallery/g-elem-8.png);
+  background-image: url(../sources/image/gallery/g-elem-8.png);
   -ms-grid-row: 2;
   -ms-grid-row-span: 2;
   grid-row: 2/4;
@@ -807,7 +814,7 @@ p {
   -webkit-transition: all ease 1s;
   transition: all ease 1s;
   margin-right: 20px;
-  background-image: url(sources/image/review/”.svg);
+  background-image: url(../sources/image/review/”.svg);
   background-repeat: no-repeat;
   background-position: 525px 150px;
 }

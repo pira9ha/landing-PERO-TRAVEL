@@ -15,7 +15,6 @@ button {
    font-weight: 500;
    color: #fff;
    text-decoration: none;
-   overflow-x: hidden;
 }
 
 p {
@@ -83,8 +82,12 @@ p {
 
 .cards-slider {
    position: absolute;
-   // max-width: calc(100vw - (100vw - 1120px) / 2 - 11px);
+   max-width: calc(100vw - (100vw - 1120px) / 2 - 11px);
    overflow: hidden;
+
+   @include _768 {
+      max-width: calc(100vw - (100vw - 610px) / 2 - 11px);
+   }
 
    .cards {
       display: flex;
@@ -123,6 +126,10 @@ p {
       height: 2px;
       width: 982px;
       background-color: #D4D4D4;
+
+      @include _768 {
+         width: 472px;
+      }
 
       .slide {
          cursor: pointer;

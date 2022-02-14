@@ -1,10 +1,10 @@
 //#region bg-video
 let bgVideo = document.querySelector('.video');
 const videos = [
-   '../sources/video/LOR.mp4',
-   '../sources/video/Landscape.mp4',
-   '../sources/video/nature.mp4',
-   '../sources/video/china.mp4'
+   'sources/video/LOR.mp4',
+   'sources/video/Landscape.mp4',
+   'sources/video/nature.mp4',
+   'sources/video/china.mp4'
 ];
 
 let playPauseButt = document.querySelector('.play-button');
@@ -13,8 +13,7 @@ bgVideo.addEventListener('ended', function () {
 
    if (n == videos.length) n = 0;
    bgVideo.src = videos[n];
-   drawCovers();
-   leftOffset('.video-cover');
+   leftOffset();
    setTimeout(() => {
       playPauseButt.style.visibility = 'visible'
    }, 1000);
@@ -28,48 +27,38 @@ playPauseButt.onclick = () => {
    if (clickCount == 2) {
       bgVideo.play();
       clickCount = 0;
-      playPauseButt.src = '../sources/image/play.png';
+      playPauseButt.src = 'sources/image/play.png';
    } else {
       bgVideo.pause();
-      playPauseButt.src = '../sources/image/play-paused.png';
+      playPauseButt.src = 'sources/image/play-paused.png';
    }
 }
 //#endregion
 
 //#region video-gallery
-let slidesVideoCover = document.querySelectorAll('.video-cover');
-let widthCover = slidesVideoCover[0].scrollWidth + 20;
+let sliderVideoCovers = document.querySelector('.videos-gallery')
 let slider = [];
 
 let n = 1;
 let index = 0;
 let position = 0;
 
-for (let i = 0; i < slidesVideoCover.length; i++) {
-   slider[i] = slidesVideoCover[i].src;
-   slidesVideoCover[i].remove();
-}
+function leftOffset() {
+   let slidesVideoCover = document.querySelectorAll('.video-cover');
+   let widthElem = slidesVideoCover[0].scrollWidth + 20;
 
-function draw() {
-   let i = 0;
-   while (i < 4) {
-      drawCovers();
-      i++;
-   }
-}
+   sliderVideoCovers.style.marginLeft = `${-widthElem}px`;
+   let cover = slidesVideoCover[0];
 
-draw();
+   setTimeout(() => {
 
-function drawCovers() {
-   position = position == 4 ? 2 : position;
-   index = index == slider.length ? 0 : index;
-   let img = document.createElement('img');
-   img.src = slider[index];
-   img.style.left = position * widthCover + 'px';
-   img.classList.add('video-cover');
-   document.querySelector('.videos-gallery').appendChild(img);
-   index++;
-   position++;
+      slidesVideoCover[0].remove();
+      sliderVideoCovers.append(cover);
+      sliderVideoCovers.style.marginLeft = `0`;
+
+   }, 600)
+   // }
+
 }
 //#endregion
 
@@ -96,34 +85,15 @@ for (let i = 0; i < switchContainer.length; i++) {
    }
 }
 
-function leftOffset(selector, elem = document) {
-   let offset = 0;
-   let sliderElements = elem.querySelectorAll(selector);
-   const widthElem = sliderElements[0].scrollWidth + 20;
-
-   for (let i = 0; i < sliderElements.length; i++) {
-      sliderElements[i].style.left = offset * widthElem - widthElem + 'px';
-      if (selector == '.video-cover') playPauseButt.style.visibility = 'hidden';
-      offset++;
-   }
-
-   if (selector == '.video-cover') {
-      setTimeout(() => {
-         sliderElements[0].remove();
-
-      }, 1000);
-   }
-
-}
 
 function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
    const width = cards.childNodes[3].scrollWidth + 20;
    if (marginCard[marginIndex] - width < -(cards.childElementCount - 1) * width) {
       return;
    }
-   btnPrev.style.backgroundImage = 'url(../sources/image/prev-col.svg)';
+   btnPrev.style.backgroundImage = 'url(sources/image/prev-col.svg)';
    if (marginCard[marginIndex] - width < -(cards.childElementCount - 2) * width) {
-      btnNext.style.backgroundImage = 'url(../sources/image/next.svg)';
+      btnNext.style.backgroundImage = 'url(sources/image/next.svg)';
    }
    marginCard[marginIndex] += -width;
    cards.style.marginLeft = `${marginCard[marginIndex]}px`;
@@ -134,9 +104,9 @@ function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
    if (marginCard[marginIndex] + width > 0) {
       return;
    }
-   btnNext.style.backgroundImage = 'url(../sources/image/next-col.svg)';
+   btnNext.style.backgroundImage = 'url(sources/image/next-col.svg)';
    if (marginCard[marginIndex] + width == 0) {
-      btnPrev.style.backgroundImage = 'url(../sources/image/prev.svg)';
+      btnPrev.style.backgroundImage = 'url(sources/image/prev.svg)';
    }
    marginCard[marginIndex] += width;
    cards.style.marginLeft = `${marginCard[marginIndex]}px`;
