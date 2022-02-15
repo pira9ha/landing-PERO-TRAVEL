@@ -69,6 +69,18 @@ p {
    border: 0;
    background: linear-gradient(92.71deg, #0499DD 0%, #17C1BC 100%);
    border-radius: 60px;
+
+   &:hover,
+   &:focus {
+      animation: pulse 1s;
+      box-shadow: 0 0 1em 10px rgba(#fff, 0);
+   }
+
+   @keyframes pulse {
+      0% {
+         box-shadow: 0 0 0 0 adjust-hue(#17C1BC, 0);
+      }
+   }
 }
 
 .container-title {
