@@ -214,13 +214,13 @@ $font-bold: bold;
       bottom: 0;
       height: 227px;
       margin-top: 136px;
-      transition: all ease 600ms;
 
       .video-cover {
          height: inherit;
          width: 360px;
          object-fit: cover;
          border-radius: 10px;
+         transition: all ease 1s;
       }
 
       .play-button {

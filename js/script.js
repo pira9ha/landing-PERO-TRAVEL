@@ -45,17 +45,16 @@ let position = 0;
 function leftOffset() {
    let slidesVideoCover = document.querySelectorAll('.video-cover');
    let widthElem = slidesVideoCover[0].scrollWidth + 20;
+   let cover = slidesVideoCover[0].cloneNode(true);
 
-   sliderVideoCovers.style.marginLeft = `${-widthElem}px`;
-   let cover = slidesVideoCover[0];
+   sliderVideoCovers.append(cover);
+   slidesVideoCover[0].style.marginLeft = `${-widthElem}px`;
 
    setTimeout(() => {
 
       slidesVideoCover[0].remove();
-      sliderVideoCovers.append(cover);
-      sliderVideoCovers.style.marginLeft = `0`;
 
-   }, 600)
+   }, 1000)
 
 }
 //#endregion

@@ -398,8 +398,8 @@ p {
   bottom: 0;
   height: 227px;
   margin-top: 136px;
-  -webkit-transition: all ease 600ms;
-  transition: all ease 600ms;
+  -webkit-transition: all ease 1s;
+  transition: all ease 1s;
 }
 
 .section-width .videos-gallery .video-cover {
@@ -408,6 +408,8 @@ p {
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 10px;
+  -webkit-transition: all ease 1s;
+  transition: all ease 1s;
 }
 
 .section-width .videos-gallery .play-button {
