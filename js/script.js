@@ -1,3 +1,4 @@
+'use strict'
 //#region bg-video
 let bgVideo = document.querySelector('.video');
 const videos = [
@@ -6,6 +7,10 @@ const videos = [
    'sources/video/nature.mp4',
    'sources/video/china.mp4'
 ];
+
+let n = 1;
+let index = 0;
+let position = 0;
 
 let playPauseButt = document.querySelector('.play-button');
 
@@ -37,10 +42,6 @@ playPauseButt.onclick = () => {
 
 //#region video-gallery
 let sliderVideoCovers = document.querySelector('.videos-gallery')
-
-let n = 1;
-let index = 0;
-let position = 0;
 
 function leftOffset() {
    let slidesVideoCover = document.querySelectorAll('.video-cover');
@@ -109,16 +110,19 @@ function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
 //#endregion
 
 //#region menu
-const btnMenuOpen = document.querySelector('.menu-button')
-const btnCloseMenu = document.querySelector('.cross-stand-alone')
-
-btnCloseMenu.addEventListener('click', function () {
-   let menu = document.querySelector('.open-menu');
-   menu.style.transform = 'translateX(100%)';
-})
+const btnMenuOpen = document.querySelector('.btn')
 
 btnMenuOpen.addEventListener('click', function () {
    let menu = document.querySelector('.open-menu');
-   menu.style.transform = 'translateX(0)';
+   this.classList.toggle('active')
+   this.classList.toggle('not-active')
+   if (btnMenuOpen.classList.contains('active')) {
+      menu.style.transform = 'translateY(0)';
+      this.style.right = `calc(((100vw - ${this.parentElement.clientWidth}px) / 2) - 8px)`
+   } else {
+      menu.style.transform = 'translateY(-100%)';
+      this.style.right = `0`
+   }
 })
+
 //#endregion

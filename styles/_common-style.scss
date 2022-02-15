@@ -40,7 +40,7 @@ p {
       max-width: 610px;
    }
 
-   @include _768 {
+   @include _630 {
       max-width: 380px;
    }
 }
@@ -93,6 +93,10 @@ p {
       max-width: calc(100vw - (100vw - 610px) / 2 - 11px);
    }
 
+   @include _630 {
+      max-width: calc(100vw - (100vw - 380px) / 2 - 8px);
+   }
+
    .cards {
       display: flex;
       transition: all ease 1s;
@@ -131,15 +135,28 @@ p {
       width: 982px;
       background-color: #D4D4D4;
 
-      @include _1440 {
-         width: 472px;
-      }
-
       .slide {
          cursor: pointer;
          background-color: $blue-color;
          width: 163px;
          height: 2px;
+      }
+   }
+
+   @include _1440 {
+      .slider-line {
+         width: 472px;
+      }
+   }
+
+   @include _630 {
+      margin-bottom: 125px;
+
+      .slider-line {
+         margin-left: 120px;
+         flex-grow: 0.9;
+         height: 2px;
+         width: calc(380px - 120px);
       }
    }
 }

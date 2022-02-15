@@ -27,7 +27,7 @@ $font-bold: bold;
          height: 1024px;
       }
 
-      @include _768 {
+      @include _630 {
          height: 928px;
       }
    }
@@ -39,6 +39,7 @@ $font-bold: bold;
 }
 
 .header {
+   position: relative;
    height: 109px;
 
    .nav-link:hover {
@@ -49,13 +50,13 @@ $font-bold: bold;
       margin-left: 20px;
    }
 
-   .menu-button,
+   .btn,
    .open-menu {
       display: none;
    }
 
    .open-menu {
-      transform: translateX(100%);
+      transform: translateY(-100%);
    }
 
    @include _1440 {
@@ -63,21 +64,61 @@ $font-bold: bold;
          display: none;
       }
 
-      .menu-button {
+      .btn {
+         position: absolute;
+         right: 0;
+         z-index: 4;
+         display: block;
+         width: 50px;
          cursor: pointer;
-         display: flex;
-         flex-direction: column;
-         justify-content: space-around;
-         width: 40px;
-         height: 40px;
 
-         li {
-            list-style-type: none;
-            width: 40px;
-            height: 5px;
-            background: #ffffff;
-            border-radius: 10px;
+         span {
+            display: block;
+            width: 100%;
+            border-radius: 3px;
+            height: 4px;
+            background: #fff;
+            transition: all .3s;
+            position: relative;
          }
+
+         span+span {
+            margin-top: 14px;
+         }
+
+         &:hover {
+            span {
+               background: $highlite-yellow-text;
+            }
+         }
+      }
+
+      .active.btn {
+         position: fixed;
+      }
+
+      .active span:nth-child(1) {
+         animation: ease .7s top forwards;
+      }
+
+      .not-active span:nth-child(1) {
+         animation: ease .7s top-2 forwards;
+      }
+
+      .active span:nth-child(2) {
+         animation: ease .7s scaled forwards;
+      }
+
+      .not-active span:nth-child(2) {
+         animation: ease .7s scaled-2 forwards;
+      }
+
+      .active span:nth-child(3) {
+         animation: ease .7s bottom forwards;
+      }
+
+      .not-active span:nth-child(3) {
+         animation: ease .7s bottom-2 forwards;
       }
 
       .open-menu {
@@ -88,9 +129,9 @@ $font-bold: bold;
          right: 0;
          top: 0;
          width: 100%;
-         height: 100vh;
+         height: 100%;
          background: linear-gradient(92.71deg, #0499dd 0%, #17c1bc 100%);
-         z-index: 1;
+         z-index: 3;
          transition: all ease 500ms;
 
          .cross-stand-alone {
@@ -109,7 +150,7 @@ $font-bold: bold;
                top: (60px - 2px) / 2;
                left: 0;
                right: 0;
-               height: 2px;
+               height: 5px;
                background: #fff;
                border-radius: 2px;
             }
@@ -124,6 +165,14 @@ $font-bold: bold;
 
             span {
                display: block;
+            }
+
+            &:hover {
+
+               &:before,
+               &:after {
+                  background: $highlite-yellow-text;
+               }
             }
          }
 
@@ -143,6 +192,98 @@ $font-bold: bold;
             }
          }
       }
+   }
+}
+
+@keyframes top {
+   0% {
+      top: 0;
+      transform: rotate(0);
+   }
+
+   50% {
+      top: 18px;
+      transform: rotate(0);
+   }
+
+   100% {
+      top: 18px;
+      transform: rotate(45deg);
+   }
+}
+
+@keyframes top-2 {
+   0% {
+      top: 18px;
+      transform: rotate(45deg);
+   }
+
+   50% {
+      top: 18px;
+      transform: rotate(0deg);
+   }
+
+   100% {
+      top: 0;
+      transform: rotate(0deg);
+   }
+}
+
+@keyframes bottom {
+   0% {
+      bottom: 0;
+      transform: rotate(0);
+   }
+
+   50% {
+      bottom: 19px;
+      transform: rotate(0);
+   }
+
+   100% {
+      bottom: 19px;
+      transform: rotate(135deg);
+   }
+}
+
+@keyframes bottom-2 {
+   0% {
+      bottom: 19px;
+      transform: rotate(135deg);
+   }
+
+   50% {
+      bottom: 19px;
+      transform: rotate(0);
+   }
+
+   100% {
+      bottom: 0;
+      transform: rotate(0);
+   }
+}
+
+@keyframes scaled {
+   50% {
+      transform: scale(0);
+   }
+
+   100% {
+      transform: scale(0);
+   }
+}
+
+@keyframes scaled-2 {
+   0% {
+      transform: scale(0);
+   }
+
+   50% {
+      transform: scale(0);
+   }
+
+   100% {
+      transform: scale(1);
    }
 }
 
@@ -198,7 +339,7 @@ $font-bold: bold;
    }
 
    .cover-container {
-      position: relative;
+      position: absolute;
       display: flex;
       gap: 20px;
       left: 59.5%;
@@ -213,7 +354,6 @@ $font-bold: bold;
       gap: 20px;
       bottom: 0;
       height: 227px;
-      margin-top: 136px;
 
       .video-cover {
          height: inherit;
@@ -235,7 +375,7 @@ $font-bold: bold;
    }
 
    @include _1440 {
-      height: 1003px;
+      height: 1006px;
       padding-top: 210px;
 
       .text {
@@ -267,12 +407,9 @@ $font-bold: bold;
 
       .videos-gallery {
          height: 187px;
-         margin-top: 225px;
-
 
          .video-cover {
             width: 295px;
-
          }
 
          .play-button {
@@ -283,8 +420,8 @@ $font-bold: bold;
       }
    }
 
-   @include _768 {
-      height: 1003px;
+   @include _630 {
+      height: 910px;
       padding-top: 92px;
 
       .text {
@@ -307,14 +444,17 @@ $font-bold: bold;
          right: 14px;
       }
 
+      .social-media {
+         top: 508px;
+      }
+
       .cover-container {
-         left: calc((100vw - 380px) / 2);
-         max-width: calc(380px + ((100vw - 380px) / 2) - 9px);
+         left: 0;
+         max-width: calc(380px + ((100vw - 380px) / 2) - 8px);
       }
 
       .videos-gallery {
          height: 187px;
-         margin-top: 225px;
 
 
          .video-cover {
@@ -424,6 +564,26 @@ $font-bold: bold;
          }
       }
    }
+
+   @include _630 {
+      height: 1050px;
+
+      .title-content {
+         max-width: 250px;
+      }
+
+      .exc-card {
+         width: 280px;
+         height: 540px;
+
+         .desc {
+
+            >p {
+               height: 209px;
+            }
+         }
+      }
+   }
 }
 
 .about-us {
@@ -464,7 +624,7 @@ $font-bold: bold;
       align-items: flex-start;
    }
 
-   @include _768 {
+   @include _630 {
       .about {
          margin-top: 26px;
       }
@@ -533,6 +693,14 @@ $font-bold: bold;
       .types-grid {
          display: flex;
          flex-direction: column;
+      }
+   }
+
+   @include _630 {
+      &>p {
+         font-size: 13px;
+         width: auto;
+         height: fit-content;
       }
    }
 }
@@ -639,7 +807,7 @@ $font-bold: bold;
          }
       }
 
-      @include _768 {
+      @include _630 {
          height: auto;
          grid-template-columns: repeat(2, 180px);
          grid-template-rows: 186px 194px 260px;
@@ -722,6 +890,28 @@ $font-bold: bold;
          }
       }
    }
+
+   @include _630 {
+      height: 920px;
+
+      .review-card {
+         width: 280px;
+         height: 447px;
+         flex-direction: column;
+
+         img {
+            height: 80px;
+            width: 80px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+         }
+
+         p {
+            width: 228px;
+            font-size: 13px;
+         }
+      }
+   }
 }
 
 .bg-img {
@@ -747,6 +937,14 @@ $font-bold: bold;
    @include _1440 {
       height: 640px;
    }
+
+   @include _630 {
+      height: 928px;
+
+      img {
+         object-position: center;
+      }
+   }
 }
 
 .form-container {
@@ -756,13 +954,11 @@ $font-bold: bold;
    justify-content: flex-end;
 
    .contact-data {
-      position: absolute;
-      right: -170px;
       height: 640px;
-      width: 746px;
+      width: 560px;
       background: rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(20px);
-      padding-left: 140px;
+      padding-left: 105px;
       padding-top: 132px;
 
       .question {
@@ -778,7 +974,7 @@ $font-bold: bold;
       }
 
       input {
-         width: 480px;
+         width: 360px;
          border: 0;
          color: #fff;
          font-family: inherit;
@@ -825,18 +1021,32 @@ $font-bold: bold;
          }
       }
    }
+
+   @include _630 {
+      height: 928px;
+   }
 }
 
 footer {
    background-color: #ededed;
 
-   .flex-row {
-      flex-direction: row;
-      justify-content: space-between;
+   .grid-footer {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      grid-template-rows: repeat(5, auto);
+      align-content: center;
       height: 173px;
 
-      .edge-elem {
-         gap: 110px;
+      nav {
+         grid-row: 2/5;
+         grid-column: 2;
+      }
+
+      .logo {
+         grid-row: 1/6;
+         grid-column: 1;
+         width: 80px;
+         height: 114px;
       }
 
       .direction-column {
@@ -844,27 +1054,43 @@ footer {
          flex-direction: column;
 
          .margin-top-bottom {
-            margin: 8px 0;
+            margin: 10px 0;
          }
       }
    }
 
+   .phone-nums {
+      grid-row: 2/5;
+      grid-column: 3;
+   }
+
+   .mail {
+      align-self: flex-start;
+      grid-row: 2;
+      grid-column: 4;
+   }
+
    span {
       display: inline-flex;
+      align-items: center;
       margin-bottom: 8px;
 
       .icon-img {
-         margin-right: 9px;
+         margin-right: 12px;
       }
+   }
+
+   .color-social-media {
+      grid-row: 3/5;
+      grid-column: 4;
    }
 
    .social-media__icon {
       margin-right: 6px;
-      margin-top: 15px;
    }
 
    @include _1440 {
-      .flex-row {
+      .grid-footer {
          .logo {
             width: 65px;
             height: 93px;
@@ -877,6 +1103,44 @@ footer {
          .edge-elem {
             gap: 32px;
             font-size: 12px;
+         }
+      }
+   }
+
+   @include _630 {
+      .grid-footer {
+         grid-template-columns: repeat(2, 1fr);
+         grid-template-rows: 130px 40px 60px 80px 20px;
+         height: 412px;
+
+         .logo {
+            justify-self: center;
+            grid-row: 1;
+            grid-column: 1/3;
+            width: 80px;
+            height: 114px;
+         }
+
+         nav {
+            align-self: flex-start;
+            grid-row: 4/6;
+            grid-column: 1;
+         }
+
+         .phone-nums {
+            grid-row: 4;
+            grid-column: 2;
+         }
+
+         .mail {
+            grid-row: 5;
+            grid-column: 2;
+         }
+
+         .color-social-media {
+            justify-content: center;
+            grid-row: 2;
+            grid-column: 1/3;
          }
       }
    }
