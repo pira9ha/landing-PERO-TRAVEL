@@ -23,7 +23,7 @@ $font-bold: bold;
       max-width: 100%;
       height: 789px;
 
-      @include _1440 {
+      @include _910 {
          height: 1024px;
       }
 
@@ -59,7 +59,7 @@ $font-bold: bold;
       transform: translateY(-100%);
    }
 
-   @include _1440 {
+   @include _910 {
       .header__navigation-panel {
          display: none;
       }
@@ -119,6 +119,98 @@ $font-bold: bold;
 
       .not-active span:nth-child(3) {
          animation: ease .7s bottom-2 forwards;
+      }
+
+      @keyframes top {
+         0% {
+            top: 0;
+            transform: rotate(0);
+         }
+
+         50% {
+            top: 18px;
+            transform: rotate(0);
+         }
+
+         100% {
+            top: 18px;
+            transform: rotate(45deg);
+         }
+      }
+
+      @keyframes top-2 {
+         0% {
+            top: 18px;
+            transform: rotate(45deg);
+         }
+
+         50% {
+            top: 18px;
+            transform: rotate(0deg);
+         }
+
+         100% {
+            top: 0;
+            transform: rotate(0deg);
+         }
+      }
+
+      @keyframes bottom {
+         0% {
+            bottom: 0;
+            transform: rotate(0);
+         }
+
+         50% {
+            bottom: 19px;
+            transform: rotate(0);
+         }
+
+         100% {
+            bottom: 19px;
+            transform: rotate(135deg);
+         }
+      }
+
+      @keyframes bottom-2 {
+         0% {
+            bottom: 19px;
+            transform: rotate(135deg);
+         }
+
+         50% {
+            bottom: 19px;
+            transform: rotate(0);
+         }
+
+         100% {
+            bottom: 0;
+            transform: rotate(0);
+         }
+      }
+
+      @keyframes scaled {
+         50% {
+            transform: scale(0);
+         }
+
+         100% {
+            transform: scale(0);
+         }
+      }
+
+      @keyframes scaled-2 {
+         0% {
+            transform: scale(0);
+         }
+
+         50% {
+            transform: scale(0);
+         }
+
+         100% {
+            transform: scale(1);
+         }
       }
 
       .open-menu {
@@ -195,97 +287,7 @@ $font-bold: bold;
    }
 }
 
-@keyframes top {
-   0% {
-      top: 0;
-      transform: rotate(0);
-   }
 
-   50% {
-      top: 18px;
-      transform: rotate(0);
-   }
-
-   100% {
-      top: 18px;
-      transform: rotate(45deg);
-   }
-}
-
-@keyframes top-2 {
-   0% {
-      top: 18px;
-      transform: rotate(45deg);
-   }
-
-   50% {
-      top: 18px;
-      transform: rotate(0deg);
-   }
-
-   100% {
-      top: 0;
-      transform: rotate(0deg);
-   }
-}
-
-@keyframes bottom {
-   0% {
-      bottom: 0;
-      transform: rotate(0);
-   }
-
-   50% {
-      bottom: 19px;
-      transform: rotate(0);
-   }
-
-   100% {
-      bottom: 19px;
-      transform: rotate(135deg);
-   }
-}
-
-@keyframes bottom-2 {
-   0% {
-      bottom: 19px;
-      transform: rotate(135deg);
-   }
-
-   50% {
-      bottom: 19px;
-      transform: rotate(0);
-   }
-
-   100% {
-      bottom: 0;
-      transform: rotate(0);
-   }
-}
-
-@keyframes scaled {
-   50% {
-      transform: scale(0);
-   }
-
-   100% {
-      transform: scale(0);
-   }
-}
-
-@keyframes scaled-2 {
-   0% {
-      transform: scale(0);
-   }
-
-   50% {
-      transform: scale(0);
-   }
-
-   100% {
-      transform: scale(1);
-   }
-}
 
 .section-width {
    position: relative;
@@ -375,6 +377,12 @@ $font-bold: bold;
    }
 
    @include _1440 {
+      .cover-container {
+         max-width: calc((100vw - 900px) / 2 + (900px - 59.5%) - 8px);
+      }
+   }
+
+   @include _910 {
       height: 1006px;
       padding-top: 210px;
 
@@ -550,6 +558,21 @@ $font-bold: bold;
 
    @include _1440 {
       .exc-card {
+         width: 286px;
+         height: 490px;
+
+         .desc {
+            top: 185px;
+
+            >p {
+               height: 156px;
+            }
+         }
+      }
+   }
+
+   @include _910 {
+      .exc-card {
          width: 295px;
          height: 490px;
 
@@ -611,7 +634,7 @@ $font-bold: bold;
       margin-top: 40px;
    }
 
-   @include _1440 {
+   @include _910 {
       .about {
          margin-top: 26px;
       }
@@ -689,7 +712,7 @@ $font-bold: bold;
       }
    }
 
-   @include _1440 {
+   @include _910 {
       .types-grid {
          display: flex;
          flex-direction: column;
@@ -772,6 +795,20 @@ $font-bold: bold;
       }
 
       @include _1440 {
+         transform: translateX(0);
+         grid-template-columns: 216px 267px auto;
+         grid-template-rows: 280px 123px 123px;
+         width: inherit;
+         height: 567px;
+
+         .gallery-img-3,
+         .gallery-img-4,
+         .gallery-img-8 {
+            display: none;
+         }
+      }
+
+      @include _910 {
          transform: translateX(0);
          width: inherit;
          height: 567px;
@@ -870,7 +907,7 @@ $font-bold: bold;
       }
    }
 
-   @include _1440 {
+   @include _910 {
       height: 755px;
 
       .review-card {
@@ -934,7 +971,7 @@ $font-bold: bold;
       height: 100%;
    }
 
-   @include _1440 {
+   @include _910 {
       height: 640px;
    }
 
@@ -1009,7 +1046,7 @@ $font-bold: bold;
       }
    }
 
-   @include _1440 {
+   @include _910 {
       .contact-data {
          width: 400px;
          height: 640px;
@@ -1024,6 +1061,10 @@ $font-bold: bold;
 
    @include _630 {
       height: 928px;
+
+      .contact-data {
+         margin-top: 25px;
+      }
    }
 }
 
@@ -1089,7 +1130,7 @@ footer {
       margin-right: 6px;
    }
 
-   @include _1440 {
+   @include _910 {
       .grid-footer {
          .logo {
             width: 65px;

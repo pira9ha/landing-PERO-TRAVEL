@@ -17,7 +17,7 @@ let playPauseButt = document.querySelector('.play-button');
 bgVideo.addEventListener('ended', function () {
 
    if (n == videos.length) n = 0;
-   bgVideo.src = videos[n];
+   this.src = videos[n];
    leftOffset();
    setTimeout(() => {
       playPauseButt.style.visibility = 'visible'
@@ -40,7 +40,7 @@ playPauseButt.onclick = () => {
 }
 //#endregion
 
-//#region video-gallery
+//#region video-gallery func
 let sliderVideoCovers = document.querySelector('.videos-gallery')
 
 function leftOffset() {
@@ -124,5 +124,4 @@ btnMenuOpen.addEventListener('click', function () {
       this.style.right = `0`
    }
 })
-
 //#endregion

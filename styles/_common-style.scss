@@ -37,6 +37,10 @@ p {
    max-width: 1120px;
 
    @include _1440 {
+      max-width: 900px;
+   }
+
+   @include _910 {
       max-width: 610px;
    }
 
@@ -90,7 +94,11 @@ p {
    overflow: hidden;
 
    @include _1440 {
-      max-width: calc(100vw - (100vw - 610px) / 2 - 11px);
+      max-width: calc(100vw - (100vw - 900px) / 2 - 8px);
+   }
+
+   @include _910 {
+      max-width: calc(100vw - (100vw - 610px) / 2 - 8px);
    }
 
    @include _630 {
@@ -144,6 +152,12 @@ p {
    }
 
    @include _1440 {
+      .slider-line {
+         width: calc(900px - 138px);
+      }
+   }
+
+   @include _910 {
       .slider-line {
          width: 472px;
       }
