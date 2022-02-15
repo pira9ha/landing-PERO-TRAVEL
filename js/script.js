@@ -49,11 +49,10 @@ function leftOffset() {
 
    sliderVideoCovers.append(cover);
    slidesVideoCover[0].style.marginLeft = `${-widthElem}px`;
+   playPauseButt.style.visibility = 'hidden'
 
    setTimeout(() => {
-
       slidesVideoCover[0].remove();
-
    }, 1000)
 
 }
