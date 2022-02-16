@@ -1,18 +1,33 @@
 'use strict'
-//#region bg-video
-let bgVideo = document.querySelector('.video');
+
+// ВСЕ ПЕРЕМЕННЫЕ
+
+const bgVideo = document.querySelector('.video');
 const videos = [
    'sources/video/LOR.mp4',
    'sources/video/Landscape.mp4',
    'sources/video/nature.mp4',
    'sources/video/china.mp4'
 ];
+const playPauseButt = document.querySelector('.play-button')
 
+const sliderVideoCovers = document.querySelector('.videos-gallery')
+
+let switchContainer = document.querySelectorAll('.switch')
+let sliderLines = document.querySelectorAll('.slide')
+let batons = []
+
+let marginSlider = []
+for (let i = 0; i < sliderLines.length; i++) marginSlider.push(0);
+
+for (let i = 0; i < sliderLines.length; i++) {
+   sliderLines[i].style.width = `${sliderLines[i].parentElement.scrollWidth / switchContainer[i].parentNode.querySelector('.cards').childElementCount}px`;
+}
+
+window.addEventListener("resize", setWidthToSliderLine);
+
+//#region bg-video
 let n = 1;
-let index = 0;
-let position = 0;
-
-let playPauseButt = document.querySelector('.play-button');
 
 bgVideo.addEventListener('ended', function () {
 
@@ -41,7 +56,6 @@ playPauseButt.onclick = () => {
 //#endregion
 
 //#region video-gallery func
-let sliderVideoCovers = document.querySelector('.videos-gallery')
 
 function leftOffset() {
    let slidesVideoCover = document.querySelectorAll('.video-cover');
@@ -60,13 +74,6 @@ function leftOffset() {
 //#endregion
 
 //#region sliders
-const excursionCardImages = [];
-
-let switchContainer = document.querySelectorAll('.switch');
-let buttNext = document.querySelectorAll('.next');
-let batons = [];
-console.log(switchContainer);
-
 let marginCard = [];
 
 for (let i = 0; i < switchContainer.length; i++) {
@@ -76,9 +83,11 @@ for (let i = 0; i < switchContainer.length; i++) {
    const cards = switchContainer[i].parentNode.querySelector('.cards');
    batons[i].firstElementChild.onclick = () => {
       rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i);
+      offsetSlider(i)
    }
    batons[i].lastElementChild.onclick = () => {
       leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i);
+      offsetSlider(i)
    }
 }
 
@@ -91,8 +100,10 @@ function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
    if (marginCard[marginIndex] - width < -(cards.childElementCount - 2) * width) {
       btnNext.style.backgroundImage = 'url(sources/image/next.svg)';
    }
+   marginSlider[marginIndex]++;
    marginCard[marginIndex] += -width;
    cards.style.marginLeft = `${marginCard[marginIndex]}px`;
+
 }
 
 function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
@@ -104,8 +115,14 @@ function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
    if (marginCard[marginIndex] + width == 0) {
       btnPrev.style.backgroundImage = 'url(sources/image/prev.svg)';
    }
+   marginSlider[marginIndex]--;
    marginCard[marginIndex] += width;
    cards.style.marginLeft = `${marginCard[marginIndex]}px`;
+}
+
+function offsetSlider(index) {
+   let sliderWidth = sliderLines[index].scrollWidth
+   sliderLines[index].style.marginLeft = `${marginSlider[index] * sliderWidth}px`
 }
 //#endregion
 
@@ -124,4 +141,18 @@ btnMenuOpen.addEventListener('click', function () {
       this.style.right = `0`
    }
 })
+//#endregion
+
+//#region slider-width
+function setWidthToSliderLine() {
+   for (let i = 0; i < sliderLines.length; i++) {
+      sliderLines[i].style.width = `${sliderLines[i].parentElement.scrollWidth / switchContainer[i].parentNode.querySelector('.cards').childElementCount}px`;
+      sliderLines[i].style.margin = `0`;
+      marginCard[i] = 0;
+      marginSlider[i] = 0;
+      switchContainer[i].parentNode.querySelector('.cards').style.marginLeft = '0'
+      batons[i].firstElementChild.style.backgroundImage = 'url(sources/image/prev.svg)';
+      batons[i].lastElementChild.style.backgroundImage = 'url(sources/image/next-col.svg)';
+   }
+}
 //#endregion

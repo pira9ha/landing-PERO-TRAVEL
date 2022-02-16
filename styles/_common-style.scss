@@ -106,11 +106,11 @@ p {
    overflow: hidden;
 
    @include _1440 {
-      max-width: calc(100vw - (100vw - 900px) / 2 - 8px);
+      max-width: calc(100vw - (100vw - 900px) / 2 - 9px);
    }
 
    @include _910 {
-      max-width: calc(100vw - (100vw - 610px) / 2 - 8px);
+      max-width: calc(100vw - (100vw - 610px) / 2 - 9px);
    }
 
    @include _630 {
@@ -160,6 +160,7 @@ p {
          background-color: $blue-color;
          width: 163px;
          height: 2px;
+         transition: all ease 1s;
       }
    }
 
