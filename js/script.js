@@ -18,13 +18,13 @@ let sliderLines = document.querySelectorAll('.slide')
 let batons = []
 
 let marginSlider = []
-for (let i = 0; i < sliderLines.length; i++) marginSlider.push(0);
+// for (let i = 0; i < sliderLines.length; i++) marginSlider.push(0);
 
-for (let i = 0; i < sliderLines.length; i++) {
-   sliderLines[i].style.width = `${sliderLines[i].parentElement.scrollWidth / switchContainer[i].parentNode.querySelector('.cards').childElementCount}px`;
-}
+// for (let i = 0; i < sliderLines.length; i++) {
+//    sliderLines[i].style.width = `${sliderLines[i].parentElement.scrollWidth / switchContainer[i].parentNode.querySelector('.cards').childElementCount}px`;
+// }
 
-window.addEventListener("resize", setWidthToSliderLine);
+// window.addEventListener("resize", setWidthToSliderLine);
 
 //#region bg-video
 let n = 1;
@@ -76,20 +76,20 @@ function leftOffset() {
 //#region sliders
 let marginCard = [];
 
-for (let i = 0; i < switchContainer.length; i++) {
-   batons.push(switchContainer[i].querySelector('.buttons'));
-   marginCard.push(0);
-   console.log(batons[i].firstElementChild);
-   const cards = switchContainer[i].parentNode.querySelector('.cards');
-   batons[i].firstElementChild.onclick = () => {
-      rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i);
-      offsetSlider(i)
-   }
-   batons[i].lastElementChild.onclick = () => {
-      leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i);
-      offsetSlider(i)
-   }
-}
+// for (let i = 0; i < switchContainer.length; i++) {
+//    batons.push(switchContainer[i].querySelector('.buttons'));
+//    marginCard.push(0);
+//    console.log(batons[i].firstElementChild);
+//    const cards = switchContainer[i].parentNode.querySelector('.cards');
+//    batons[i].firstElementChild.onclick = () => {
+//       rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i);
+//       offsetSlider(i)
+//    }
+//    batons[i].lastElementChild.onclick = () => {
+//       leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i);
+//       offsetSlider(i)
+//    }
+// }
 
 function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
    const width = cards.childNodes[3].scrollWidth + 20;
@@ -156,3 +156,34 @@ function setWidthToSliderLine() {
    }
 }
 //#endregion
+
+const swiperExc = new Swiper('.exc-slider', {
+   slidesPerView: "auto",
+   slidesPerGroup: 1,
+   centeredSlides: false,
+   // Navigation arrows
+   navigation: {
+      nextEl: '.exc-next',
+      prevEl: '.exc-prev',
+   },
+
+   // And if we need scrollbar
+   scrollbar: {
+      el: '.swiper-scrollbar-exc',
+   },
+});
+
+const swiperRew = new Swiper('.reviews-slider', {
+   slidesPerView: "auto",
+   centeredSlides: false,
+   // Navigation arrows
+   navigation: {
+      nextEl: '.rev-next',
+      prevEl: '.rev-prev',
+   },
+
+   // And if we need scrollbar
+   scrollbar: {
+      el: '.swiper-scrollbar',
+   },
+});

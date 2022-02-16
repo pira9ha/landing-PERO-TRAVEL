@@ -123,6 +123,12 @@ p {
   font-size: 24px;
 }
 
+.swiper {
+  position: absolute;
+  width: calc(100vw - (100vw - 1120px) / 2 - 11px);
+  overflow: hidden;
+}
+
 .cards-slider {
   position: absolute;
   max-width: calc(100vw - (100vw - 1120px) / 2 - 11px);
@@ -143,7 +149,7 @@ p {
 
 @media screen and (max-width: 630px) {
   .cards-slider {
-    max-width: calc(100vw - (100vw - 380px) / 2 - 8px);
+    max-width: calc(100vw - (100vw - 380px) / 2 - 9px);
   }
 }
 
@@ -162,25 +168,44 @@ p {
   gap: 50px;
 }
 
-.switch .button-arrow {
-  width: 24px;
+.switch .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: auto;
   height: 43px;
-  background-color: transparent;
-  background-position: center;
-  border: 0;
   cursor: pointer;
 }
 
-.switch .previous {
-  background-image: url(../sources/image/prev.svg);
-  margin-right: 30px;
+.switch .swiper-button-next,
+.switch .swiper-button-prev {
+  position: relative;
+  top: 10px;
+  z-index: 10;
+  cursor: pointer;
+  width: 24px;
+  height: 43px;
 }
 
-.switch .next {
-  background-image: url(../sources/image/next-col.svg);
+.switch .swiper-button-next::after,
+.switch .swiper-button-prev::after {
+  color: #0499DD;
 }
 
-.switch .slider-line {
+.switch .swiper-button-prev,
+.switch .swiper-rtl .swiper-button-next {
+  left: 0;
+  right: auto;
+}
+
+.switch .swiper-scrollbar,
+.switch .swiper-scrollbar-exc {
   position: absolute;
   margin-left: 138px;
   -webkit-box-flex: 0.9;
@@ -189,25 +214,23 @@ p {
   height: 2px;
   width: 982px;
   background-color: #D4D4D4;
+  color: #0499DD;
 }
 
-.switch .slider-line .slide {
-  cursor: pointer;
-  background-color: #0499DD;
-  width: 163px;
-  height: 2px;
-  -webkit-transition: all ease 1s;
-  transition: all ease 1s;
+.switch .swiper-scrollbar-drag {
+  background: #0499DD;
 }
 
 @media screen and (max-width: 1440px) {
-  .switch .slider-line {
+  .switch .swiper-scrollbar,
+  .switch .swiper-scrollbar-exc {
     width: calc(900px - 138px);
   }
 }
 
 @media screen and (max-width: 910px) {
-  .switch .slider-line {
+  .switch .swiper-scrollbar,
+  .switch .swiper-scrollbar-exc {
     width: 472px;
   }
 }
@@ -216,7 +239,8 @@ p {
   .switch {
     margin-bottom: 125px;
   }
-  .switch .slider-line {
+  .switch .swiper-scrollbar,
+  .switch .swiper-scrollbar-exc {
     margin-left: 120px;
     -webkit-box-flex: 0.9;
         -ms-flex-positive: 0.9;
@@ -729,7 +753,7 @@ p {
     right: 121px;
   }
   .section-width .cover-container {
-    max-width: calc((100vw - 610px) / 2 + (610px - 59.5%) - 8px);
+    max-width: calc((100vw - 610px) / 2 + (610px - 59.5%) - 9px);
   }
   .section-width .videos-gallery {
     height: 187px;
@@ -769,7 +793,7 @@ p {
   }
   .section-width .cover-container {
     left: 0;
-    max-width: calc(380px + ((100vw - 380px) / 2) - 8px);
+    max-width: calc(380px + ((100vw - 380px) / 2) - 9px);
   }
   .section-width .videos-gallery {
     height: 187px;
@@ -868,6 +892,36 @@ p {
   width: 160px;
   height: 40px;
   line-height: 40px;
+}
+
+.excursions .switch .swiper-button-next-exc,
+.excursions .switch .swiper-button-prev-exc {
+  position: relative;
+  top: 10px;
+  z-index: 10;
+  cursor: pointer;
+  width: 24px;
+  height: 43px;
+}
+
+.excursions .switch .swiper-button-next,
+.excursions .switch .swiper-button-prev {
+  position: relative;
+  top: 10px;
+  z-index: 10;
+  cursor: pointer;
+  width: 24px;
+  height: 43px;
+}
+
+.excursions .switch .swiper-button-next-exc::after {
+  color: #0499dd;
+}
+
+.excursions .switch .swiper-button-prev-exc,
+.excursions .switch .swiper-rtl .swiper-button-next-exc {
+  left: 0;
+  right: auto;
 }
 
 @media screen and (max-width: 1440px) {

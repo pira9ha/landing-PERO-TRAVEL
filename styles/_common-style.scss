@@ -100,6 +100,12 @@ p {
    font-size: 24px;
 }
 
+.swiper {
+   position: absolute;
+   width: calc(100vw - (100vw - 1120px) / 2 - 11px);
+   overflow: hidden;
+}
+
 .cards-slider {
    position: absolute;
    max-width: calc(100vw - (100vw - 1120px) / 2 - 11px);
@@ -114,7 +120,7 @@ p {
    }
 
    @include _630 {
-      max-width: calc(100vw - (100vw - 380px) / 2 - 8px);
+      max-width: calc(100vw - (100vw - 380px) / 2 - 9px);
    }
 
    .cards {
@@ -129,49 +135,79 @@ p {
    margin-bottom: 150px;
    gap: 50px;
 
-   .button-arrow {
-      width: 24px;
+   .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
       height: 43px;
-      background-color: transparent;
-      background-position: center;
-      border: 0;
+      // background-color: transparent;
+      // background-position: center;
+      // border: 0;
       cursor: pointer;
    }
 
-   .previous {
-      background-image: url(../sources/image/prev.svg);
-      margin-right: 30px;
+   // .previous {
+   //    background-image: url(../sources/image/prev.svg);
+   //    margin-right: 30px;
+   // }
+
+   .swiper-button-next,
+   .swiper-button-prev {
+      position: relative;
+      top: 10px;
+      z-index: 10;
+      cursor: pointer;
+      width: 24px;
+      height: 43px;
    }
 
-   .next {
-      background-image: url(../sources/image/next-col.svg);
+   .swiper-button-next::after,
+   .swiper-button-prev::after {
+      color: $blue-color;
    }
 
-   .slider-line {
+   .swiper-button-prev,
+   .swiper-rtl .swiper-button-next {
+      left: 0;
+      right: auto;
+   }
+
+   .swiper-scrollbar,
+   .swiper-scrollbar-exc {
       position: absolute;
       margin-left: 138px;
       flex-grow: 0.9;
       height: 2px;
       width: 982px;
       background-color: #D4D4D4;
+      color: $blue-color;
+   }
 
-      .slide {
-         cursor: pointer;
-         background-color: $blue-color;
-         width: 163px;
-         height: 2px;
-         transition: all ease 1s;
-      }
+   .swiper-scrollbar-drag {
+      background: $blue-color;
+
+      // .slide {
+      //    cursor: pointer;
+      //    background-color: $blue-color;
+      //    width: 163px;
+      //    height: 2px;
+      //    transition: all ease 1s;
+      // }
    }
 
    @include _1440 {
-      .slider-line {
+
+      .swiper-scrollbar,
+      .swiper-scrollbar-exc {
          width: calc(900px - 138px);
       }
    }
 
    @include _910 {
-      .slider-line {
+
+      .swiper-scrollbar,
+      .swiper-scrollbar-exc {
          width: 472px;
       }
    }
@@ -179,7 +215,8 @@ p {
    @include _630 {
       margin-bottom: 125px;
 
-      .slider-line {
+      .swiper-scrollbar,
+      .swiper-scrollbar-exc {
          margin-left: 120px;
          flex-grow: 0.9;
          height: 2px;

@@ -8,6 +8,7 @@
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
    <link rel="stylesheet" href="styles/style.css">
    <title>Путешествуй вместе с Pero Travel</title>
 </head>
@@ -83,10 +84,10 @@
             <span class="title-content">Популярные экскурсии</span>
             <a href="#" class="view-all">Смотреть все</a>
          </div>
-         <div class="cards-slider">
-            <div class="cards">
+         <div class="cards-slider swiper exc-slider">
+            <div class="cards swiper-wrapper">
                <!-- 1 -->
-               <div class="exc-card">
+               <div class="swiper-slide exc-card ">
                   <div class="exc-card__background align-center">
                      <div class="shade-gradient"></div>
                      <img src="sources/image/exc-1.png" alt="">
@@ -118,7 +119,7 @@
                </div>
 
                <!-- 2 -->
-               <div class="exc-card">
+               <div class="swiper-slide exc-card ">
                   <div class="exc-card__background align-center">
                      <div class="shade-gradient"></div>
                      <img src="sources/image/exc-2.png" alt="">
@@ -148,7 +149,7 @@
                </div>
 
                <!-- 3 -->
-               <div class="exc-card">
+               <div class=" swiper-slide exc-card">
                   <div class="exc-card__background align-center">
                      <div class="shade-gradient"></div>
                      <img src="sources/image/exc-3.png" alt="">
@@ -179,7 +180,7 @@
                </div>
 
                <!-- 4 -->
-               <div class="exc-card">
+               <div class=" swiper-slide exc-card">
                   <div class="exc-card__background align-center">
                      <div class="shade-gradient"></div>
                      <img src="sources/image/exc-4.png" alt="">
@@ -210,7 +211,7 @@
                </div>
 
                <!-- 5 -->
-               <div class="exc-card">
+               <div class=" swiper-slide exc-card">
                   <div class="exc-card__background align-center">
                      <div class="shade-gradient"></div>
                      <img src="sources/image/exc-5.png" alt="">
@@ -241,7 +242,7 @@
                </div>
 
                <!-- 6 -->
-               <div class="exc-card">
+               <div class=" swiper-slide exc-card">
                   <div class="exc-card__background align-center">
                      <div class="shade-gradient"></div>
                      <img src="sources/image/exc-6.png" alt="">
@@ -275,17 +276,23 @@
 
          </div>
          <div class="switch align-center">
-            <div class="buttons">
-               <button class="previous button-arrow"></button>
-               <button class="next button-arrow"></button>
-            </div>
+            <div class="swiper-button-prev exc-prev button-arrow"></div>
+            <div class="swiper-button-next exc-next button-arrow"></div>
 
-            <div class="slider-line">
-               <div class="slide"></div>
+            <div class="swiper-scrollbar-exc">
             </div>
          </div>
       </div>
       <!-- /excursions-slider -->
+
+      <!-- <div class="buttons">
+   <button class="previous button-arrow"></button>
+   <button class="next button-arrow"></button>
+</div>
+
+<div class="slider-line">
+   <div class="slide"></div>
+</div> -->
 
       <!-- about-us -->
       <div class="about-us container align-center container--padding-top">
@@ -413,11 +420,11 @@
             <span class="title-content">Отзывы</span>
             <a href="#" class="view-all">Смотреть все</a>
          </div>
-         <div class="cards-slider">
+         <div class="cards-slider swiper reviews-slider">
 
-            <div class="cards">
+            <div class="cards swiper-wrapper">
                <!-- 1 -->
-               <div class="review-card">
+               <div class="swiper-slide review-card">
 
                   <img src="sources/image/review/rev-2.png" alt="">
                   <div class="description">
@@ -433,7 +440,7 @@
                </div>
 
                <!-- 2 -->
-               <div class="review-card">
+               <div class="swiper-slide review-card">
                   <img src="sources/image/review/rev-1.png" alt="">
                   <div class="description">
                      <span class="review-autor">Василий Васильев, 25 лет</span>
@@ -448,7 +455,7 @@
                </div>
 
                <!-- 3 -->
-               <div class="review-card">
+               <div class="swiper-slide review-card">
                   <img src="sources/image/review/rev-3.png" alt="">
                   <div class="description">
                      <span class="review-autor">Василия Васильева, 25 лет</span>
@@ -463,7 +470,7 @@
                </div>
 
                <!-- 4 -->
-               <div class="review-card">
+               <div class="swiper-slide review-card">
                   <img src="sources/image/review/rev-4.png" alt="">
                   <div class="description">
                      <span class="review-autor">Ивана Иванова, 25 лет</span>
@@ -480,7 +487,15 @@
             </div>>
 
          </div>
+
          <div class="switch align-center">
+            <div class="swiper-button-prev rev-prev button-arrow"></div>
+            <div class="swiper-button-next rev-next button-arrow"></div>
+
+            <div class="swiper-scrollbar">
+            </div>
+         </div>
+         <!-- <div class="switch align-center">
             <div class="buttons">
                <button class="previous button-arrow"></button>
                <button class="next button-arrow"></button>
@@ -489,7 +504,7 @@
             <div class="slider-line">
                <div class="slide"></div>
             </div>
-         </div>
+         </div> -->
       </div>
       <!-- /reviews -->
 
@@ -564,7 +579,9 @@
 
    </main>
 
+   <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
    <script src="js/script.js"></script>
+
 </body>
 
 </html>
