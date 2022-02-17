@@ -500,7 +500,7 @@
       </div>
 
       <div class="form-container container">
-         <form action="#" class="contact-data">
+         <form action="#" class="contact-data" name="feedback">
             <span class="question">
                Остались вопросы?
             </span>
@@ -508,7 +508,7 @@
                Оставь заявку и мы ответим
             </span>
             <input type="text" class="first-name" placeholder="Имя"></input>
-            <input type="number" class="number" placeholder="Телефон"></input>
+            <input type="text" class="number" name="phoneNumber" placeholder="Телефон"></input>
             <input type="email" class="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Почта">
             </input>
             <button type="submit" class="basic-button">Оставить заявку</button>
@@ -564,6 +564,7 @@
 
    </main>
 
+   <script src="https://unpkg.com/imask"></script>
    <script src="js/script.js"></script>
 </body>
 
