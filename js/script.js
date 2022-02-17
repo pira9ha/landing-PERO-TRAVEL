@@ -1,8 +1,10 @@
 'use strict'
 
-// ВСЕ ПЕРЕМЕННЫЕ
+// ПЕРЕМЕННЫЕ
 const form = document.forms.feedback
-let phoneInput = form.elements.phoneNumber
+let phoneInput = form.elements.visitorPhoneNumber
+let nameInput = form.elements.visitorName
+let emailInput = form.elements.visitorEmail
 
 const bgVideo = document.querySelector('.video');
 const videos = [
@@ -164,7 +166,9 @@ var maskOptions = {
 };
 var mask = IMask(phoneInput, maskOptions);
 
-// form.addEventListener("submit", function (event) {
-
-// })
+form.addEventListener("submit", function (event) {
+   if (!phoneInput || !nameInput || !emailInput) {
+      event.preventDefault();
+   }
+})
 //#endregion
