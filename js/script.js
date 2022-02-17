@@ -30,6 +30,8 @@ for (let i = 0; i < sliderLines.length; i++) {
 
 window.addEventListener("resize", setWidthToSliderLine);
 
+let scrollButton = document.querySelector('.scroll')
+
 //#region bg-video
 let n = 1;
 
@@ -172,3 +174,18 @@ form.addEventListener("submit", function (event) {
    }
 })
 //#endregion
+
+scrollButton.addEventListener('click', function () {
+
+   window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+   })
+})
+
+window.addEventListener('scroll', function () {
+   if (window.pageYOffset > 500) {
+      scrollButton.classList.remove('scroll-hidden')
+   }
+   if (window.pageYOffset == 0) scrollButton.classList.add('scroll-hidden');
+})

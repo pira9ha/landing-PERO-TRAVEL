@@ -1188,3 +1188,29 @@ footer {
       }
    }
 }
+
+.scroll-hidden {
+   display: none;
+}
+
+.scroll {
+   cursor: pointer;
+   position: fixed;
+   bottom: 20px;
+   right: 20px;
+   width: 50px;
+   height: 50px;
+   background-color: $blue-color;
+   border-radius: 50%;
+
+   .scroll-arrow {
+      position: absolute;
+      border-right: 3px solid #fff;
+      border-bottom: 3px solid #fff;
+      width: 20px;
+      height: 20px;
+      transform: rotate(-135deg);
+      top: 20px;
+      left: 15px;
+   }
+}
