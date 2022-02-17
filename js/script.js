@@ -109,7 +109,7 @@ function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
    }
    marginSlider[marginIndex]++;
    marginCard[marginIndex] += -width;
-   cards.style.marginLeft = `${marginCard[marginIndex]}px`;
+   cards.style.transform = `translateX(${marginCard[marginIndex]}px)`;
 
 }
 
@@ -124,7 +124,7 @@ function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
    }
    marginSlider[marginIndex]--;
    marginCard[marginIndex] += width;
-   cards.style.marginLeft = `${marginCard[marginIndex]}px`;
+   cards.style.transform = `translateX(${marginCard[marginIndex]}px)`;
 }
 
 function offsetSlider(index) {

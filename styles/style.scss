@@ -226,8 +226,8 @@ $font-bold: bold;
          align-items: center;
          right: 0;
          top: 0;
-         width: 100vw;
-         height: 100vh;
+         width: 100%;
+         height: 100%;
          background: linear-gradient(92.71deg, #0499dd 0%, #17c1bc 100%);
          z-index: 3;
          transition: all ease 500ms;
@@ -383,7 +383,7 @@ $font-bold: bold;
 
    @include _1440 {
       .cover-container {
-         max-width: calc((100vw - 900px) / 2 + (900px - 59.5%) - 11px);
+         max-width: calc((100vw - 900px) / 2 + (900px - 59.5%) - 9px);
       }
    }
 
@@ -417,7 +417,7 @@ $font-bold: bold;
       }
 
       .cover-container {
-         max-width: calc((100vw - 610px) / 2 + (610px - 59.5%) - 10px);
+         max-width: calc((100vw - 610px) / 2 + (610px - 59.5%) - 8px);
       }
 
       .videos-gallery {
@@ -820,6 +820,7 @@ $font-bold: bold;
          height: 567px;
          grid-template-columns: repeat(3, 1fr);
          grid-template-rows: repeat(2, 1fr);
+         grid-gap: auto;
 
          .gallery-img-1,
          .gallery-img-5,
