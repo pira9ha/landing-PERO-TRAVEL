@@ -6,6 +6,8 @@ let phoneInput = form.elements.visitorPhoneNumber
 let nameInput = form.elements.visitorName
 let emailInput = form.elements.visitorEmail
 
+let body = document.querySelector('body')
+
 const bgVideo = document.querySelector('.video');
 const videos = [
    'sources/video/LOR.mp4',
@@ -145,6 +147,7 @@ btnMenuOpen.addEventListener('click', function () {
       menu.style.transform = 'translateY(-100%)';
       this.style.right = `0`
    }
+   body.classList.toggle('body-hidden')
 })
 //#endregion
 
