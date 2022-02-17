@@ -1199,7 +1199,8 @@ footer {
 }
 
 .scroll-hidden {
-   display: none;
+   opacity: 0 !important;
+   pointer-events: none;
 }
 
 .scroll {
@@ -1211,7 +1212,7 @@ footer {
    height: 50px;
    background-color: $blue-color;
    border-radius: 50%;
-
+   transition: opacity ease .6s;
 
    &:hover {
       background-color: #52bbec;

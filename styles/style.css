@@ -1647,7 +1647,8 @@ footer .social-media__icon {
 }
 
 .scroll-hidden {
-  display: none;
+  opacity: 0 !important;
+  pointer-events: none;
 }
 
 .scroll {
@@ -1659,6 +1660,8 @@ footer .social-media__icon {
   height: 50px;
   background-color: #0499dd;
   border-radius: 50%;
+  -webkit-transition: opacity ease .6s;
+  transition: opacity ease .6s;
 }
 
 .scroll:hover {

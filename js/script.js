@@ -178,6 +178,7 @@ form.addEventListener("submit", function (event) {
 })
 //#endregion
 
+//#region scroll button
 scrollButton.addEventListener('click', function () {
 
    window.scrollTo({
@@ -192,3 +193,4 @@ window.addEventListener('scroll', function () {
    }
    if (window.pageYOffset == 0) scrollButton.classList.add('scroll-hidden');
 })
+//#endregion
