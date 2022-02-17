@@ -1483,8 +1483,8 @@ footer {
 footer .grid-footer {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (auto)[4];
-      grid-template-columns: repeat(4, auto);
+  -ms-grid-columns: auto 110px (auto)[3] 110px auto;
+      grid-template-columns: auto 110px repeat(3, auto) 110px auto;
   -ms-grid-rows: (auto)[5];
       grid-template-rows: repeat(5, auto);
   -ms-flex-line-pack: center;
@@ -1496,8 +1496,8 @@ footer .grid-footer nav {
   -ms-grid-row: 2;
   -ms-grid-row-span: 3;
   grid-row: 2/5;
-  -ms-grid-column: 2;
-  grid-column: 2;
+  -ms-grid-column: 3;
+  grid-column: 3;
 }
 
 footer .grid-footer .logo {
@@ -1528,8 +1528,8 @@ footer .phone-nums {
   -ms-grid-row: 2;
   -ms-grid-row-span: 3;
   grid-row: 2/5;
-  -ms-grid-column: 3;
-  grid-column: 3;
+  -ms-grid-column: 5;
+  grid-column: 5;
 }
 
 footer .mail {
@@ -1537,8 +1537,8 @@ footer .mail {
       align-self: flex-start;
   -ms-grid-row: 2;
   grid-row: 2;
-  -ms-grid-column: 4;
-  grid-column: 4;
+  -ms-grid-column: 7;
+  grid-column: 7;
 }
 
 footer span {
@@ -1559,8 +1559,8 @@ footer .color-social-media {
   -ms-grid-row: 3;
   -ms-grid-row-span: 2;
   grid-row: 3/5;
-  -ms-grid-column: 4;
-  grid-column: 4;
+  -ms-grid-column: 7;
+  grid-column: 7;
 }
 
 footer .social-media__icon {
@@ -1568,6 +1568,10 @@ footer .social-media__icon {
 }
 
 @media screen and (max-width: 910px) {
+  footer .grid-footer {
+    -ms-grid-columns: auto 35px (auto)[3] 35px auto;
+        grid-template-columns: auto 35px repeat(3, auto) 35px auto;
+  }
   footer .grid-footer .logo {
     width: 65px;
     height: 93px;

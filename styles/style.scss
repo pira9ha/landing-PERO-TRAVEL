@@ -1075,14 +1075,14 @@ footer {
 
    .grid-footer {
       display: grid;
-      grid-template-columns: repeat(4, auto);
+      grid-template-columns: auto 110px repeat(3, auto) 110px auto;
       grid-template-rows: repeat(5, auto);
       align-content: center;
       height: 173px;
 
       nav {
          grid-row: 2/5;
-         grid-column: 2;
+         grid-column: 3;
       }
 
       .logo {
@@ -1104,13 +1104,13 @@ footer {
 
    .phone-nums {
       grid-row: 2/5;
-      grid-column: 3;
+      grid-column: 5;
    }
 
    .mail {
       align-self: flex-start;
       grid-row: 2;
-      grid-column: 4;
+      grid-column: 7;
    }
 
    span {
@@ -1125,7 +1125,7 @@ footer {
 
    .color-social-media {
       grid-row: 3/5;
-      grid-column: 4;
+      grid-column: 7;
    }
 
    .social-media__icon {
@@ -1134,6 +1134,8 @@ footer {
 
    @include _910 {
       .grid-footer {
+         grid-template-columns: auto 35px repeat(3, auto) 35px auto;
+
          .logo {
             width: 65px;
             height: 93px;
