@@ -1,6 +1,12 @@
 @import "common-style";
 @import "media-styles";
 
+@font-face {
+   font-family: 'mr_KindlyJasmineG';
+   src:
+      url('../sources/font/mr_kindlyjasmineg.ttf') format('truetype');
+}
+
 $blue-color: #0499dd;
 $highlite-yellow-text: #ffc700;
 
@@ -320,13 +326,12 @@ $font-bold: bold;
    }
 
    .color-text {
+      font-family: 'mr_KindlyJasmineG';
       position: absolute;
-      background-image: url(../sources/image/вместе_с.png);
-      background-repeat: no-repeat;
-      height: 64px;
-      width: 151px;
-      top: 63px;
-      right: 36px;
+      display: block;
+      top: 50px;
+      font-size: 64px;
+      right: 31px;
    }
 
    .social-media {
@@ -402,11 +407,13 @@ $font-bold: bold;
       }
 
       .color-text {
-         background-image: url(../sources/image/вместе_с_small.png);
-         height: 48px;
-         width: 114px;
+         font-size: 48px;
          top: 46px;
-         right: 121px;
+         right: 40px;
+      }
+
+      .social-media {
+         top: 345px;
       }
 
       .cover-container {
@@ -448,8 +455,8 @@ $font-bold: bold;
       }
 
       .color-text {
-         top: 31px;
-         right: 14px;
+         top: 25px;
+         right: 12px;
       }
 
       .social-media {

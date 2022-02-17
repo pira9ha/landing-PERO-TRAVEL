@@ -248,6 +248,11 @@ p {
   overflow: hidden;
 }
 
+@font-face {
+  font-family: 'mr_KindlyJasmineG';
+  src: url("../sources/font/mr_kindlyjasmineg.ttf") format("truetype");
+}
+
 /*unique styles*/
 .background-video {
   position: absolute;
@@ -655,13 +660,12 @@ p {
 }
 
 .section-width .color-text {
+  font-family: 'mr_KindlyJasmineG';
   position: absolute;
-  background-image: url(../sources/image/вместе_с.png);
-  background-repeat: no-repeat;
-  height: 64px;
-  width: 151px;
-  top: 63px;
-  right: 36px;
+  display: block;
+  top: 50px;
+  font-size: 64px;
+  right: 31px;
 }
 
 .section-width .social-media {
@@ -744,11 +748,12 @@ p {
     height: 172px;
   }
   .section-width .color-text {
-    background-image: url(../sources/image/вместе_с_small.png);
-    height: 48px;
-    width: 114px;
+    font-size: 48px;
     top: 46px;
-    right: 121px;
+    right: 40px;
+  }
+  .section-width .social-media {
+    top: 345px;
   }
   .section-width .cover-container {
     max-width: calc((100vw - 610px) / 2 + (610px - 59.5%) - 10px);
@@ -783,8 +788,8 @@ p {
     height: 130px;
   }
   .section-width .color-text {
-    top: 31px;
-    right: 14px;
+    top: 25px;
+    right: 12px;
   }
   .section-width .social-media {
     top: 508px;
