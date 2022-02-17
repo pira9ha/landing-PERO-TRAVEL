@@ -1212,6 +1212,11 @@ footer {
    background-color: $blue-color;
    border-radius: 50%;
 
+
+   &:hover {
+      background-color: #52bbec;
+   }
+
    .scroll-arrow {
       position: absolute;
       border-right: 3px solid #fff;

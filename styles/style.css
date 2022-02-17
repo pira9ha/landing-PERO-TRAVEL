@@ -1661,6 +1661,10 @@ footer .social-media__icon {
   border-radius: 50%;
 }
 
+.scroll:hover {
+  background-color: #52bbec;
+}
+
 .scroll .scroll-arrow {
   position: absolute;
   border-right: 3px solid #fff;
