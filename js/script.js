@@ -1,6 +1,8 @@
 'use strict'
 
 // ВСЕ ПЕРЕМЕННЫЕ
+const form = document.forms.feedback
+let phoneInput = form.elements.phoneNumber
 
 const bgVideo = document.querySelector('.video');
 const videos = [
@@ -79,7 +81,6 @@ let marginCard = [];
 for (let i = 0; i < switchContainer.length; i++) {
    batons.push(switchContainer[i].querySelector('.buttons'));
    marginCard.push(0);
-   console.log(batons[i].firstElementChild);
    const cards = switchContainer[i].parentNode.querySelector('.cards');
    batons[i].firstElementChild.onclick = () => {
       rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i);
@@ -155,4 +156,15 @@ function setWidthToSliderLine() {
       batons[i].lastElementChild.style.backgroundImage = 'url(sources/image/next-col.svg)';
    }
 }
+//#endregion
+
+//#region form
+var maskOptions = {
+   mask: '+{7}(000)000-00-00'
+};
+var mask = IMask(phoneInput, maskOptions);
+
+// form.addEventListener("submit", function (event) {
+
+// })
 //#endregion
