@@ -383,7 +383,7 @@ $font-bold: bold;
 
    @include _1440 {
       .cover-container {
-         max-width: calc((100vw - 900px) / 2 + (900px - 59.5%) - 3px);
+         max-width: calc((100vw - 900px) / 2 + (900px - 59.5%) - 2px);
       }
    }
 
