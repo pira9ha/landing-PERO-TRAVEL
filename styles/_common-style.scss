@@ -115,7 +115,7 @@ p {
    }
 
    @include _630 {
-      max-width: calc(100vw - (100vw - 380px) / 2 - 1px);
+      max-width: calc(100vw - (100vw - 380px) / 2);
    }
 
    .cards {

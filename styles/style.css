@@ -144,7 +144,7 @@ p {
 
 @media screen and (max-width: 630px) {
   .cards-slider {
-    max-width: calc(100vw - (100vw - 380px) / 2 - 1px);
+    max-width: calc(100vw - (100vw - 380px) / 2);
   }
 }
 
@@ -782,7 +782,7 @@ p {
   }
   .section-width .cover-container {
     left: 0;
-    max-width: calc(380px + ((100vw - 380px) / 2) - 1px);
+    max-width: calc(380px + ((100vw - 380px) / 2));
   }
   .section-width .videos-gallery {
     height: 187px;

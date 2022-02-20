@@ -465,7 +465,7 @@ $font-bold: bold;
 
       .cover-container {
          left: 0;
-         max-width: calc(380px + ((100vw - 380px) / 2) - 1px);
+         max-width: calc(380px + ((100vw - 380px) / 2));
       }
 
       .videos-gallery {
