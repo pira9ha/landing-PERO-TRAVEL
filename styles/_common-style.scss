@@ -107,11 +107,11 @@ p {
    overflow: hidden;
 
    @include _1440 {
-      max-width: calc(100vw - (100vw - 900px) / 2);
+      max-width: calc(100vw - (100vw - 900px) / 2 - 3px);
    }
 
    @include _910 {
-      max-width: calc(100vw - (100vw - 610px) / 2);
+      max-width: calc(100vw - (100vw - 610px) / 2 - 1px);
    }
 
    @include _630 {

@@ -132,13 +132,13 @@ p {
 
 @media screen and (max-width: 1440px) {
   .cards-slider {
-    max-width: calc(100vw - (100vw - 900px) / 2);
+    max-width: calc(100vw - (100vw - 900px) / 2 - 3px);
   }
 }
 
 @media screen and (max-width: 910px) {
   .cards-slider {
-    max-width: calc(100vw - (100vw - 610px) / 2);
+    max-width: calc(100vw - (100vw - 610px) / 2 - 1px);
   }
 }
 
@@ -712,7 +712,7 @@ p {
 
 @media screen and (max-width: 1440px) {
   .section-width .cover-container {
-    max-width: calc((100vw - 900px) / 2 + (900px - 59.5%));
+    max-width: calc((100vw - 900px) / 2 + (900px - 59.5%) - 3px);
   }
 }
 
@@ -742,7 +742,7 @@ p {
     top: 345px;
   }
   .section-width .cover-container {
-    max-width: calc((100vw - 610px) / 2 + (610px - 59.5%));
+    max-width: calc((100vw - 610px) / 2 + (610px - 59.5%) - 1px);
   }
   .section-width .videos-gallery {
     height: 187px;
@@ -782,7 +782,7 @@ p {
   }
   .section-width .cover-container {
     left: 0;
-    max-width: calc(380px + ((100vw - 380px) / 2));
+    max-width: calc(380px + ((100vw - 380px) / 2) - 1px);
   }
   .section-width .videos-gallery {
     height: 187px;

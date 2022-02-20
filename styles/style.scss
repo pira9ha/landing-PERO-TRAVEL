@@ -383,7 +383,7 @@ $font-bold: bold;
 
    @include _1440 {
       .cover-container {
-         max-width: calc((100vw - 900px) / 2 + (900px - 59.5%));
+         max-width: calc((100vw - 900px) / 2 + (900px - 59.5%) - 3px);
       }
    }
 
@@ -417,7 +417,7 @@ $font-bold: bold;
       }
 
       .cover-container {
-         max-width: calc((100vw - 610px) / 2 + (610px - 59.5%));
+         max-width: calc((100vw - 610px) / 2 + (610px - 59.5%) - 1px);
       }
 
       .videos-gallery {
@@ -465,7 +465,7 @@ $font-bold: bold;
 
       .cover-container {
          left: 0;
-         max-width: calc(380px + ((100vw - 380px) / 2));
+         max-width: calc(380px + ((100vw - 380px) / 2) - 1px);
       }
 
       .videos-gallery {
