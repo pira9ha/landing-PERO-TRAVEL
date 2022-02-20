@@ -131,19 +131,19 @@ p {
 
 @media screen and (max-width: 1440px) {
   .cards-slider {
-    max-width: calc(100vw - (100vw - 900px) / 2 - 9px);
+    max-width: calc(100vw - (100vw - 900px) / 2);
   }
 }
 
 @media screen and (max-width: 910px) {
   .cards-slider {
-    max-width: calc(100vw - (100vw - 610px) / 2 - 10px);
+    max-width: calc(100vw - (100vw - 610px) / 2);
   }
 }
 
 @media screen and (max-width: 630px) {
   .cards-slider {
-    max-width: calc(100vw - (100vw - 380px) / 2 - 11px);
+    max-width: calc(100vw - (100vw - 380px) / 2 - 1px);
   }
 }
 
@@ -222,7 +222,7 @@ p {
         -ms-flex-positive: 0.9;
             flex-grow: 0.9;
     height: 2px;
-    width: calc(380px - 120px);
+    width: calc(380px - 127px);
   }
 }
 
@@ -689,7 +689,7 @@ p {
   display: flex;
   gap: 20px;
   left: 59.5%;
-  max-width: calc((100vw - 1120px) / 2 + (1120px - 59.5%) - 11px);
+  max-width: calc((100vw - 1120px) / 2 + (1120px - 59.5%) - 8px);
   bottom: 0;
   overflow: hidden;
 }
@@ -726,7 +726,7 @@ p {
 
 @media screen and (max-width: 1440px) {
   .section-width .cover-container {
-    max-width: calc((100vw - 900px) / 2 + (900px - 59.5%) - 9px);
+    max-width: calc((100vw - 900px) / 2 + (900px - 59.5%));
   }
 }
 
@@ -756,7 +756,7 @@ p {
     top: 345px;
   }
   .section-width .cover-container {
-    max-width: calc((100vw - 610px) / 2 + (610px - 59.5%) - 8px);
+    max-width: calc((100vw - 610px) / 2 + (610px - 59.5%));
   }
   .section-width .videos-gallery {
     height: 187px;
@@ -796,7 +796,7 @@ p {
   }
   .section-width .cover-container {
     left: 0;
-    max-width: calc(380px + ((100vw - 380px) / 2) - 10px);
+    max-width: calc(380px + ((100vw - 380px) / 2));
   }
   .section-width .videos-gallery {
     height: 187px;
@@ -1189,7 +1189,6 @@ p {
         grid-template-columns: repeat(3, 1fr);
     -ms-grid-rows: (1fr)[2];
         grid-template-rows: repeat(2, 1fr);
-    grid-gap: auto;
   }
   .container .gallery .gallery-img-1,
   .container .gallery .gallery-img-5,
@@ -1236,6 +1235,8 @@ p {
         grid-template-columns: repeat(2, 180px);
     -ms-grid-rows: 186px 194px 260px;
         grid-template-rows: 186px 194px 260px;
+    -webkit-column-gap: calc(100% - 360px);
+            column-gap: calc(100% - 360px);
   }
   .container .gallery .gallery-img-2 {
     height: 400px;

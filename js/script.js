@@ -142,7 +142,7 @@ btnMenuOpen.addEventListener('click', function () {
    this.classList.toggle('not-active')
    if (btnMenuOpen.classList.contains('active')) {
       menu.style.transform = 'translateY(0)';
-      this.style.right = `calc(((100vw - ${this.parentElement.clientWidth}px) / 2) - 8px)`
+      this.style.right = `calc(((100vw - ${this.parentElement.clientWidth}px) / 2))`
    } else {
       menu.style.transform = 'translateY(-100%)';
       this.style.right = `0`

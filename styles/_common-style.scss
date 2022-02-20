@@ -106,15 +106,15 @@ p {
    overflow: hidden;
 
    @include _1440 {
-      max-width: calc(100vw - (100vw - 900px) / 2 - 9px);
+      max-width: calc(100vw - (100vw - 900px) / 2);
    }
 
    @include _910 {
-      max-width: calc(100vw - (100vw - 610px) / 2 - 10px);
+      max-width: calc(100vw - (100vw - 610px) / 2);
    }
 
    @include _630 {
-      max-width: calc(100vw - (100vw - 380px) / 2 - 11px);
+      max-width: calc(100vw - (100vw - 380px) / 2 - 1px);
    }
 
    .cards {
@@ -183,7 +183,7 @@ p {
          margin-left: 120px;
          flex-grow: 0.9;
          height: 2px;
-         width: calc(380px - 120px);
+         width: calc(380px - 127px);
       }
    }
 }
