@@ -132,7 +132,7 @@ p {
 
 @media screen and (max-width: 1440px) {
   .cards-slider {
-    max-width: calc(100vw - (100vw - 900px) / 2 - 2px);
+    max-width: calc(100vw - (100vw - 900px) / 2 - 8px);
   }
 }
 
@@ -213,11 +213,11 @@ p {
 }
 
 .invalid-input-value {
-  color: #fff;
+  color: tomato;
   font-family: inherit;
   padding-bottom: 5px;
   background-color: transparent;
-  border-bottom: 2px solid #ff907d;
+  border-bottom: 1px solid #e42908 !important;
 }
 
 .invalid-input-value:focus {
@@ -712,7 +712,7 @@ p {
 
 @media screen and (max-width: 1440px) {
   .section-width .cover-container {
-    max-width: calc((100vw - 900px) / 2 + (900px - 59.5%) - 2px);
+    max-width: calc((100vw - 900px) / 2 + (900px - 59.5%) - 8px);
   }
 }
 
