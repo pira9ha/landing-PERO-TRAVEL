@@ -172,7 +172,7 @@ var maskOptions = {
 var mask = IMask(phoneInput, maskOptions);
 
 form.addEventListener("submit", function (event) {
-   if (!phoneInput || !nameInput || !emailInput) {
+   if (!phoneInput.value || !nameInput.value || !emailInput.value) {
       event.preventDefault();
    }
 })
