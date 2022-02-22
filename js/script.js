@@ -7,6 +7,7 @@ let nameInput = form.elements.visitorName
 let emailInput = form.elements.visitorEmail
 
 let body = document.querySelector('body')
+let container = document.querySelector('.container')
 
 const bgVideo = document.querySelector('.video');
 const videos = [
@@ -26,14 +27,14 @@ let batons = []
 let marginSlider = []
 for (let i = 0; i < sliderLines.length; i++) marginSlider.push(0);
 
-for (let i = 0; i < sliderLines.length; i++) {
-   sliderLines[i].style.width = `${sliderLines[i].parentElement.scrollWidth / switchContainer[i].parentNode.querySelector('.cards').childElementCount}px`;
-}
+calcSlideLine()
 
 window.addEventListener("resize", setWidthToSliderLine);
 
 let scrollButton = document.querySelector('.scroll')
 
+console.log(window.innerWidth)
+console.log(switchContainer[0].parentNode.querySelector('.cards').scrollWidth)
 //#region bg-video
 let n = 1;
 
@@ -87,7 +88,7 @@ let marginCard = [];
 for (let i = 0; i < switchContainer.length; i++) {
    batons.push(switchContainer[i].querySelector('.buttons'));
    marginCard.push(0);
-   const cards = switchContainer[i].parentNode.querySelector('.cards');
+   let cards = switchContainer[i].parentNode.querySelector('.cards');
    batons[i].firstElementChild.onclick = () => {
       rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i);
       offsetSlider(i)
@@ -99,37 +100,45 @@ for (let i = 0; i < switchContainer.length; i++) {
 }
 
 function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
-   const width = cards.childNodes[3].scrollWidth + 20;
-   if (marginCard[marginIndex] - width < -(cards.childElementCount - 1) * width) {
+   const scrollWidth = cards.scrollWidth - container.clientWidth;
+   const width = cards.firstElementChild.scrollWidth + 20;
+
+   if (marginCard[marginIndex] == -scrollWidth) {
       return;
    }
-   btnPrev.style.backgroundImage = 'url(sources/image/prev-col.svg)';
-   if (marginCard[marginIndex] - width < -(cards.childElementCount - 2) * width) {
-      btnNext.style.backgroundImage = 'url(sources/image/next.svg)';
+   btnPrev.style.stroke = '#0499DD';
+
+   if (marginCard[marginIndex] - width < -scrollWidth) {
+      marginCard[marginIndex] -= marginCard[marginIndex] - width + scrollWidth;
    }
-   marginSlider[marginIndex]++;
+
    marginCard[marginIndex] += -width;
+   marginSlider[marginIndex]++;
    cards.style.transform = `translateX(${marginCard[marginIndex]}px)`;
+   btnNext.style.stroke = marginCard[marginIndex] == -scrollWidth ? '#D4D4D4' : '#0499DD';
 
 }
 
 function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
-   const width = cards.childNodes[3].scrollWidth + 20;
-   if (marginCard[marginIndex] + width > 0) {
+   const scrollWidth = cards.scrollWidth - container.clientWidth;
+   const width = cards.firstElementChild.scrollWidth + 20;
+   if (marginCard[marginIndex] == 0) {
       return;
    }
-   btnNext.style.backgroundImage = 'url(sources/image/next-col.svg)';
-   if (marginCard[marginIndex] + width == 0) {
-      btnPrev.style.backgroundImage = 'url(sources/image/prev.svg)';
-   }
+   btnNext.style.stroke = '#0499DD';
+
+   if (marginCard[marginIndex] + width > 0) {
+      marginCard[marginIndex] = 0;
+   } else marginCard[marginIndex] += width;
+
    marginSlider[marginIndex]--;
-   marginCard[marginIndex] += width;
    cards.style.transform = `translateX(${marginCard[marginIndex]}px)`;
+   btnPrev.style.stroke = marginCard[marginIndex] == 0 ? '#D4D4D4' : '#0499DD';
 }
 
 function offsetSlider(index) {
    let sliderWidth = sliderLines[index].scrollWidth
-   sliderLines[index].style.marginLeft = `${marginSlider[index] * sliderWidth}px`
+   sliderLines[index].style.transform = `translateX(${marginSlider[index] * sliderWidth}px)`
 }
 //#endregion
 
@@ -154,13 +163,14 @@ btnMenuOpen.addEventListener('click', function () {
 //#region slider-width
 function setWidthToSliderLine() {
    for (let i = 0; i < sliderLines.length; i++) {
-      sliderLines[i].style.width = `${sliderLines[i].parentElement.scrollWidth / switchContainer[i].parentNode.querySelector('.cards').childElementCount}px`;
-      sliderLines[i].style.margin = `0`;
+      calcSlideLine()
       marginCard[i] = 0;
       marginSlider[i] = 0;
-      switchContainer[i].parentNode.querySelector('.cards').style.marginLeft = '0'
-      batons[i].firstElementChild.style.backgroundImage = 'url(sources/image/prev.svg)';
-      batons[i].lastElementChild.style.backgroundImage = 'url(sources/image/next-col.svg)';
+      let cards = switchContainer[i].parentNode.querySelector('.cards')
+      cards.removeAttribute("style")
+      cards.transform = `translateX(0)`
+      batons[i].firstElementChild.style.stroke = '#D4D4D4';
+      batons[i].lastElementChild.style.stroke = '#0499DD';
    }
 }
 //#endregion
@@ -180,7 +190,6 @@ form.addEventListener("submit", function (event) {
 
 //#region scroll button
 scrollButton.addEventListener('click', function () {
-
    window.scrollTo({
       top: 0,
       behavior: "smooth"
@@ -193,4 +202,15 @@ window.addEventListener('scroll', function () {
    }
    if (window.pageYOffset == 0) scrollButton.classList.add('scroll-hidden');
 })
+//#endregion
+
+//#region helpers
+function calcSlideLine() {
+   for (let i = 0; i < sliderLines.length; i++) {
+      sliderLines[i].removeAttribute("style")
+      let cards = switchContainer[i].parentNode.querySelector('.cards')
+      container = document.querySelector('.container')
+      sliderLines[i].style.width = `${sliderLines[i].parentElement.scrollWidth / (Math.round((cards.scrollWidth - container.clientWidth) / (cards.firstElementChild.clientWidth+20)) + 1)}px`;
+   }
+}
 //#endregion

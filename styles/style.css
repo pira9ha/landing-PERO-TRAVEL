@@ -164,22 +164,13 @@ p {
   gap: 50px;
 }
 
-.switch .button-arrow {
-  width: 24px;
-  height: 43px;
-  background-color: transparent;
-  background-position: center;
-  border: 0;
-  cursor: pointer;
-}
-
 .switch .previous {
-  background-image: url(../sources/image/prev.svg);
+  stroke: #D4D4D4;
   margin-right: 30px;
 }
 
 .switch .next {
-  background-image: url(../sources/image/next-col.svg);
+  stroke: #0499DD;
 }
 
 .switch .buttons {
@@ -190,6 +181,14 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+}
+
+.switch .buttons svg {
+  cursor: pointer;
+  fill: none !important;
+  stroke-width: 2px;
+  -webkit-transition: stroke .3s ease;
+  transition: stroke .3s ease;
 }
 
 .switch .slider-line {
@@ -210,6 +209,10 @@ p {
   height: 2px;
   -webkit-transition: all ease 1s;
   transition: all ease 1s;
+}
+
+.card ~ .card {
+  margin-left: 20px;
 }
 
 .invalid-input-value {
@@ -664,8 +667,24 @@ p {
           flex-direction: column;
 }
 
-.section-width .social-media .social-media__icon {
+.section-width .social-media .social-media__icon svg {
+  fill: white;
   width: 30px;
+  height: 30px;
+}
+
+.section-width .social-media .facebook {
+  fill: none !important;
+  stroke: white;
+  stroke-width: 2px;
+}
+
+.section-width .social-media .facebook:hover {
+  stroke: #ffc700;
+}
+
+.section-width .social-media .social-media__icon svg:hover {
+  fill: #ffc700;
 }
 
 .section-width .cover-container {
@@ -806,7 +825,6 @@ p {
   width: 360px;
   height: 497px;
   font-size: 12px;
-  margin-right: 20px;
   -webkit-transition: all ease 1s;
   transition: all ease 1s;
 }
@@ -884,10 +902,6 @@ p {
 }
 
 @media screen and (max-width: 1440px) {
-  .excursions .exc-card {
-    width: 286px;
-    height: 490px;
-  }
   .excursions .exc-card .desc {
     top: 185px;
   }
@@ -1271,7 +1285,6 @@ p {
   border-radius: 10px;
   -webkit-transition: all ease 1s;
   transition: all ease 1s;
-  margin-right: 20px;
   background-image: url(../sources/image/review/”.svg);
   background-repeat: no-repeat;
   background-position: 525px 150px;
