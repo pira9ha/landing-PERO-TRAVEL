@@ -106,7 +106,7 @@ function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
    if (marginCard[marginIndex] == -scrollWidth) {
       return;
    }
-   btnPrev.style.stroke = '#0499DD';
+   btnPrev.classList.remove('disable')
 
    if (marginCard[marginIndex] - width < -scrollWidth) {
       marginCard[marginIndex] -= marginCard[marginIndex] - width + scrollWidth;
@@ -115,8 +115,9 @@ function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
    marginCard[marginIndex] += -width;
    marginSlider[marginIndex]++;
    cards.style.transform = `translateX(${marginCard[marginIndex]}px)`;
-   btnNext.style.stroke = marginCard[marginIndex] == -scrollWidth ? '#D4D4D4' : '#0499DD';
-
+   if (marginCard[marginIndex] == -scrollWidth) {
+      btnNext.classList.add('disable')
+   }
 }
 
 function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
@@ -125,7 +126,7 @@ function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
    if (marginCard[marginIndex] == 0) {
       return;
    }
-   btnNext.style.stroke = '#0499DD';
+   btnNext.classList.remove('disable')
 
    if (marginCard[marginIndex] + width > 0) {
       marginCard[marginIndex] = 0;
@@ -133,7 +134,9 @@ function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
 
    marginSlider[marginIndex]--;
    cards.style.transform = `translateX(${marginCard[marginIndex]}px)`;
-   btnPrev.style.stroke = marginCard[marginIndex] == 0 ? '#D4D4D4' : '#0499DD';
+   if (marginCard[marginIndex] == 0) {
+      btnPrev.classList.add('disable')
+   }
 }
 
 function offsetSlider(index) {

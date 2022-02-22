@@ -132,13 +132,9 @@ p {
    gap: 50px;
 
    .previous {
-      stroke: #D4D4D4;
       margin-right: 30px;
    }
 
-   .next {
-      stroke: #0499DD;
-   }
 
    .buttons {
       display: flex;
@@ -149,6 +145,12 @@ p {
          fill: none !important;
          stroke-width: 2px;
          transition: stroke .3s ease;
+         stroke: #0499DD;
+      }
+
+      svg.disable {
+         cursor: default;
+         stroke: #D4D4D4;
       }
    }
 

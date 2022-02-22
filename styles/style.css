@@ -165,12 +165,7 @@ p {
 }
 
 .switch .previous {
-  stroke: #D4D4D4;
   margin-right: 30px;
-}
-
-.switch .next {
-  stroke: #0499DD;
 }
 
 .switch .buttons {
@@ -189,6 +184,12 @@ p {
   stroke-width: 2px;
   -webkit-transition: stroke .3s ease;
   transition: stroke .3s ease;
+  stroke: #0499DD;
+}
+
+.switch .buttons svg.disable {
+  cursor: default;
+  stroke: #D4D4D4;
 }
 
 .switch .slider-line {
