@@ -340,8 +340,24 @@ $font-bold: bold;
       right: 0;
       flex-direction: column;
 
-      .social-media__icon {
+      .social-media__icon svg {
+         fill: white;
          width: 30px;
+         height: 30px;
+      }
+
+      .facebook {
+         fill: none !important;
+         stroke: white;
+         stroke-width: 2px;
+      }
+
+      .facebook:hover {
+         stroke: $highlite-yellow-text;
+      }
+
+      .social-media__icon svg:hover {
+         fill: $highlite-yellow-text;
       }
    }
 
@@ -495,7 +511,6 @@ $font-bold: bold;
       width: 360px;
       height: 497px;
       font-size: 12px;
-      margin-right: 20px;
       transition: all ease 1s;
 
       .exc-card__background {
@@ -565,8 +580,6 @@ $font-bold: bold;
 
    @include _1440 {
       .exc-card {
-         width: 286px;
-         height: 490px;
 
          .desc {
             top: 185px;
@@ -752,6 +765,11 @@ $font-bold: bold;
          background-size: cover;
       }
 
+      &>div:hover {
+         cursor: pointer;
+         box-shadow: 1px 1px 8px 0px #0498dd8c;
+      }
+
       .gallery-img-1 {
          background-image: url(../sources/image/gallery/g-elem-1.png);
          grid-row: 1;
@@ -897,7 +915,6 @@ $font-bold: bold;
       background-color: #ededed;
       border-radius: 10px;
       transition: all ease 1s;
-      margin-right: 20px;
       background-image: url(../sources/image/review/”.svg);
       background-repeat: no-repeat;
       background-position: 525px 150px;

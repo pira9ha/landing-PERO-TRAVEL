@@ -131,27 +131,27 @@ p {
    width: 100%;
    gap: 50px;
 
-   .button-arrow {
-      width: 24px;
-      height: 43px;
-      background-color: transparent;
-      background-position: center;
-      border: 0;
-      cursor: pointer;
-   }
-
    .previous {
-      background-image: url(../sources/image/prev.svg);
       margin-right: 30px;
    }
 
-   .next {
-      background-image: url(../sources/image/next-col.svg);
-   }
 
    .buttons {
       display: flex;
       flex-direction: row;
+
+      svg {
+         cursor: pointer;
+         fill: none !important;
+         stroke-width: 2px;
+         transition: stroke .3s ease;
+         stroke: #0499DD;
+      }
+
+      .disable {
+         cursor: default;
+         stroke: #D4D4D4;
+      }
    }
 
    .slider-line {
@@ -168,6 +168,10 @@ p {
          transition: all ease 1s;
       }
    }
+}
+
+.card~.card {
+   margin-left: 20px;
 }
 
 .invalid-input-value {
