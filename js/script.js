@@ -115,13 +115,13 @@ function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
    marginCard[marginIndex] += -width;
    marginSlider[marginIndex]++;
    cards.style.transform = `translateX(${marginCard[marginIndex]}px)`;
+
    if (marginCard[marginIndex] == -scrollWidth) {
       btnNext.classList.add('disable')
    }
 }
 
 function rightOffsetCard(cards, btnPrev, btnNext, marginIndex) {
-   const scrollWidth = cards.scrollWidth - container.clientWidth;
    const width = cards.firstElementChild.scrollWidth + 20;
    if (marginCard[marginIndex] == 0) {
       return;
@@ -172,8 +172,8 @@ function setWidthToSliderLine() {
       let cards = switchContainer[i].parentNode.querySelector('.cards')
       cards.removeAttribute("style")
       cards.transform = `translateX(0)`
-      batons[i].firstElementChild.style.stroke = '#D4D4D4';
-      batons[i].lastElementChild.style.stroke = '#0499DD';
+      batons[i].firstElementChild.classList.add('disable')
+      batons[i].lastElementChild.classList.remove('disable')
    }
 }
 //#endregion
@@ -202,8 +202,7 @@ scrollButton.addEventListener('click', function () {
 window.addEventListener('scroll', function () {
    if (window.pageYOffset > 500) {
       scrollButton.classList.remove('scroll-hidden')
-   }
-   if (window.pageYOffset == 0) scrollButton.classList.add('scroll-hidden');
+   } else scrollButton.classList.add('scroll-hidden');
 })
 //#endregion
 

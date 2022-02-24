@@ -187,7 +187,7 @@ p {
   stroke: #0499DD;
 }
 
-.switch .buttons svg.disable {
+.switch .buttons .disable {
   cursor: default;
   stroke: #D4D4D4;
 }
