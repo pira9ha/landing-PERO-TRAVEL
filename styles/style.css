@@ -1093,6 +1093,12 @@ p {
   background-size: cover;
 }
 
+.container .gallery > div:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 1px 1px 8px 0px #0498dd8c;
+          box-shadow: 1px 1px 8px 0px #0498dd8c;
+}
+
 .container .gallery .gallery-img-1 {
   background-image: url(../sources/image/gallery/g-elem-1.png);
   -ms-grid-row: 1;
