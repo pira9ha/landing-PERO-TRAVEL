@@ -1105,15 +1105,16 @@ $font-bold: bold;
 
    @include _910 {
       .contact-data {
-         width: 375px;
+         width: 440px;
          height: 640px;
          right: 0;
-         padding-left: 43px;
-         padding-right: 43px;
+         padding-left: 70px;
+         padding-right: 70px;
       }
    }
 
    @include _630 {
+      width: 375px;
       height: 928px;
       padding-top: 25px;
    }
