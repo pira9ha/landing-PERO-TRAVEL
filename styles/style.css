@@ -711,6 +711,7 @@ p {
 }
 
 .section-width .videos-gallery .video-cover {
+  cursor: pointer;
   height: inherit;
   width: 360px;
   -o-object-fit: cover;

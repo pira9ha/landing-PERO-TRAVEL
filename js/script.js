@@ -19,6 +19,7 @@ const videos = [
 const playPauseButt = document.querySelector('.play-button')
 
 const sliderVideoCovers = document.querySelector('.videos-gallery')
+let slidesVideoCover = document.getElementsByClassName('video-cover');
 
 let switchContainer = document.querySelectorAll('.switch')
 let sliderLines = document.querySelectorAll('.slide')
@@ -40,13 +41,7 @@ let n = 1;
 
 bgVideo.addEventListener('ended', function () {
 
-   if (n == videos.length) n = 0;
-   this.src = videos[n];
-   leftOffset();
-   setTimeout(() => {
-      playPauseButt.style.visibility = 'visible'
-   }, 1000);
-   n++;
+   setNextVideo();
 })
 
 let clickCount = 0;
@@ -62,16 +57,34 @@ playPauseButt.onclick = () => {
       playPauseButt.src = 'sources/image/play-paused.png';
    }
 }
+
+for (let i = 0; i < slidesVideoCover.length; i++) {
+   slidesVideoCover[i].addEventListener('click', () => {
+      n = [...slidesVideoCover].indexOf(slidesVideoCover[i]);
+      setNextVideo();
+   })
+}
+
+function setNextVideo() {
+   if (n == videos.length) n = 0;
+   bgVideo.src = videos[n];
+   leftOffset();
+   setTimeout(() => {
+      playPauseButt.style.visibility = 'visible'
+   }, 1000);
+   n++;
+}
 //#endregion
 
 //#region video-gallery func
 
 function leftOffset() {
-   let slidesVideoCover = document.querySelectorAll('.video-cover');
+   //let slidesVideoCover = document.querySelectorAll('.video-cover');
    let widthElem = slidesVideoCover[0].scrollWidth + 20;
    let cover = slidesVideoCover[0].cloneNode(true);
 
    sliderVideoCovers.append(cover);
+
    slidesVideoCover[0].style.marginLeft = `${-widthElem}px`;
    playPauseButt.style.visibility = 'hidden'
 
@@ -79,6 +92,9 @@ function leftOffset() {
       slidesVideoCover[0].remove();
    }, 1000)
 
+   cover.addEventListener('click', () => {
+      setNextVideo();
+   })
 }
 //#endregion
 

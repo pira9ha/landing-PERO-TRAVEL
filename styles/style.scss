@@ -379,6 +379,7 @@ $font-bold: bold;
       height: 227px;
 
       .video-cover {
+         cursor: pointer;
          height: inherit;
          width: 360px;
          object-fit: cover;
