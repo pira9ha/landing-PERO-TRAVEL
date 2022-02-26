@@ -221,12 +221,23 @@ p {
   font-family: inherit;
   padding-bottom: 5px;
   background-color: transparent;
-  border-bottom: 1px solid #e42908 !important;
+  border-bottom: 1px solid rgba(228, 41, 8, 0.623) !important;
 }
 
-.invalid-input-value:focus {
-  outline: 0;
-  border-color: tomato;
+.invalid-input-value::-webkit-input-placeholder {
+  color: rgba(228, 41, 8, 0.623) !important;
+}
+
+.invalid-input-value:-ms-input-placeholder {
+  color: rgba(228, 41, 8, 0.623) !important;
+}
+
+.invalid-input-value::-ms-input-placeholder {
+  color: rgba(228, 41, 8, 0.623) !important;
+}
+
+.invalid-input-value::placeholder {
+  color: rgba(228, 41, 8, 0.623) !important;
 }
 
 .invalid-error-text {

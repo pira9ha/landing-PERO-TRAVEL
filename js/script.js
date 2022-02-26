@@ -40,7 +40,6 @@ console.log(switchContainer[0].parentNode.querySelector('.cards').scrollWidth)
 let n = 1;
 
 bgVideo.addEventListener('ended', function () {
-
    setNextVideo();
 })
 
@@ -56,13 +55,6 @@ playPauseButt.onclick = () => {
       bgVideo.pause();
       playPauseButt.src = 'sources/image/play-paused.png';
    }
-}
-
-for (let i = 0; i < slidesVideoCover.length; i++) {
-   slidesVideoCover[i].addEventListener('click', () => {
-      n = [...slidesVideoCover].indexOf(slidesVideoCover[i]);
-      setNextVideo();
-   })
 }
 
 function setNextVideo() {
@@ -199,12 +191,49 @@ var maskOptions = {
    mask: '+{7}(000)000-00-00'
 };
 var mask = IMask(phoneInput, maskOptions);
+let validationText = document.createElement('span');
+validationText.className = "invalid-error-text";
+validationText.innerHTML = 'Поле не должно быть пустым!';
 
 form.addEventListener("submit", function (event) {
    if (!phoneInput.value || !nameInput.value || !emailInput.value) {
+
+      if (!phoneInput.value) {
+         phoneInput.classList.add('invalid-input-value');
+         phoneInput.after(validationText.cloneNode(true));
+      }
+      if (!nameInput.value) {
+         nameInput.classList.add('invalid-input-value');
+         nameInput.after(validationText.cloneNode(true));
+      }
+      if (!emailInput.value) {
+         emailInput.classList.add('invalid-input-value');
+         emailInput.after(validationText.cloneNode(true));
+      }
       event.preventDefault();
    }
 })
+
+phoneInput.addEventListener('focus', function () {
+   this.classList.remove('invalid-input-value');
+   if (this.nextSibling != emailInput) {
+      this.nextSibling.remove();
+   }
+});
+
+nameInput.addEventListener('focus', function () {
+   this.classList.remove('invalid-input-value');
+   if (this.nextSibling != phoneInput) {
+      this.nextSibling.remove();
+   }
+});
+
+emailInput.addEventListener('focus', function () {
+   this.classList.remove('invalid-input-value');
+   if (this.nextSibling != document.querySelector('[type="submit"]')) {
+      this.nextSibling.remove();
+   }
+});
 //#endregion
 
 //#region scroll button
@@ -230,6 +259,13 @@ function calcSlideLine() {
       container = document.querySelector('.container')
       sliderLines[i].style.width = `${sliderLines[i].parentElement.scrollWidth / (Math.round((cards.scrollWidth - container.clientWidth) / (cards.firstElementChild.clientWidth+20)) + 1)}px`;
    }
+}
+
+for (let i = 0; i < slidesVideoCover.length; i++) {
+   slidesVideoCover[i].addEventListener('click', () => {
+      n = [...slidesVideoCover].indexOf(slidesVideoCover[i]);
+      setNextVideo();
+   })
 }
 //#endregion
 
