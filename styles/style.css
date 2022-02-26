@@ -152,8 +152,9 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transition: all ease 1s;
-  transition: all ease 1s;
+  cursor: pointer;
+  -webkit-transition: all ease .6s;
+  transition: all ease .6s;
 }
 
 .switch {

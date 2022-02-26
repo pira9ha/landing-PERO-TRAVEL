@@ -120,7 +120,8 @@ p {
 
    .cards {
       display: flex;
-      transition: all ease 1s;
+      cursor: pointer;
+      transition: all ease .6s;
    }
 }
 

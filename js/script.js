@@ -6,7 +6,6 @@ let phoneInput = form.elements.visitorPhoneNumber
 let nameInput = form.elements.visitorName
 let emailInput = form.elements.visitorEmail
 
-let body = document.querySelector('body')
 let container = document.querySelector('.container')
 
 const bgVideo = document.querySelector('.video');
@@ -28,14 +27,14 @@ let batons = []
 let marginSlider = []
 for (let i = 0; i < sliderLines.length; i++) marginSlider.push(0);
 
-calcSlideLine()
+//calcSlideLine()
 
 window.addEventListener("resize", setWidthToSliderLine);
 
 let scrollButton = document.querySelector('.scroll')
 
-console.log(window.innerWidth)
-console.log(switchContainer[0].parentNode.querySelector('.cards').scrollWidth)
+let excCardsGallery = document.querySelector('.exc-slider')
+console.log(excCardsGallery)
 //#region bg-video
 let n = 1;
 
@@ -71,7 +70,6 @@ function setNextVideo() {
 //#region video-gallery func
 
 function leftOffset() {
-   //let slidesVideoCover = document.querySelectorAll('.video-cover');
    let widthElem = slidesVideoCover[0].scrollWidth + 20;
    let cover = slidesVideoCover[0].cloneNode(true);
 
@@ -105,6 +103,28 @@ for (let i = 0; i < switchContainer.length; i++) {
       leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i);
       offsetSlider(i)
    }
+
+   cards.addEventListener('pointerdown', function (event) {
+
+      let startPosX = event.clientX;
+      let endPosX;
+
+      cards.onpointerup = function (event) {
+         onMouseMove(event.clientX)
+      };
+
+      function onMouseMove(event) {
+         endPosX = event;
+         if (endPosX - startPosX < -25) {
+            leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i)
+            offsetSlider(i)
+         }
+         if (endPosX - startPosX > 25) {
+            rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i)
+            offsetSlider(i)
+         }
+      }
+   })
 }
 
 function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
@@ -151,6 +171,8 @@ function offsetSlider(index) {
    let sliderWidth = sliderLines[index].scrollWidth
    sliderLines[index].style.transform = `translateX(${marginSlider[index] * sliderWidth}px)`
 }
+
+
 //#endregion
 
 //#region menu
@@ -167,7 +189,7 @@ btnMenuOpen.addEventListener('click', function () {
       menu.style.transform = 'translateY(-100%)';
       this.style.right = `0`
    }
-   body.classList.toggle('body-hidden')
+   document.body.classList.toggle('body-hidden')
 })
 //#endregion
 
@@ -252,6 +274,108 @@ window.addEventListener('scroll', function () {
 //#endregion
 
 //#region helpers
+
+//#region objects
+let excCards = [{
+      backgroundImage: 'sources/image/exc-1.png',
+      type: "Автобусный тур",
+      title: "Обзорная по Сочи (из Адлера)",
+      time: "6 часов",
+      price: "618",
+      description: `Приглашаем вас на экскурсию<br>
+      "Обзорная по Большому Сочи": < br >
+         Экскурсия начнется с подъёма на гору Большой Ахун - это высшая точка(665 метров) на побережьи
+      Сочи.На вершине горы Большой Ахун есть смотровая башня, построенная в 1935 - 36 годах по проекту
+      архитектора С.И.Воробьева...`
+   },
+   {
+      backgroundImage: 'sources/image/exc-2.png',
+      type: "Конный тур",
+      title: "Конные прогулки",
+      time: "1,5 часа",
+      price: "1 809",
+      description: `Конные прогулки проходят в Лазурной долине. С долины открывается красивый вид на море, горы и
+      лес.На всем пути следования экскурсии вас будут сопровождать опытные инструктора.Катание на
+      лошадях или иппотерапия очень полезна для детей и взрослых...`
+   }, {
+      backgroundImage: 'sources/image/exc-3.png',
+      type: "Квадротур",
+      title: "Пасть дракона",
+      time: "2,5 часа",
+      price: "3 515",
+      description: `Маршрут на Квадроциклах проходит по горной реке Мзымта вдоль белых скал и самшитовый лес к
+                        водопаду Глубокий Яр или "Пасть Дракона" (экскурсионное название).
+                        <br>
+                        Высота водопада 41,5 метр - это один из самых высоких водопадов Большого Сочи...`
+   }, {
+      backgroundImage: 'sources/image/exc-4.png',
+      type: "Автобусный тур",
+      title: "Женский монастырь",
+      time: "4 часа",
+      price: "618",
+      description: `Троице - Георгиевский женский монастырь расположен в селе Лесное в живописном месте, в котором
+                        гармонично сочетаются красота природы и красота архитектуры сотворенная руками человека.
+                        <br>
+                        Это удивительное место расположено совсем недалеко от Чёрного моря - всего в 20 километрах`
+   }, {
+      backgroundImage: 'sources/image/exc-5.png',
+      type: "Автобусный тур",
+      title: "Женский монастырь",
+      time: "4 часа",
+      price: "999",
+      description: `Троице - Георгиевский женский монастырь расположен в селе Лесное в живописном месте, в котором
+                        гармонично сочетаются красота природы и красота архитектуры сотворенная руками человека.
+                        <br>
+                        Это удивительное место расположено совсем недалеко от Чёрного моря - всего в 20 километрах`
+   }, {
+      backgroundImage: 'sources/image/exc-6.png',
+      type: "Автобусный тур",
+      title: "Женский монастырь",
+      time: "2 часа",
+      price: "549",
+      description: `Троице - Георгиевский женский монастырь расположен в селе Лесное в живописном месте, в котором
+                        гармонично сочетаются красота природы и красота архитектуры сотворенная руками человека.
+                        <br>
+                        Это удивительное место расположено совсем недалеко от Чёрного моря - всего в 20 километрах`
+   },
+]
+//#endregion
+
+//#region load data
+excCards.forEach(item =>
+   excCardsGallery.insertAdjacentHTML('beforeend', `
+<div class="exc-card card">
+                  <div class="exc-card__background align-center">
+                     <div class="shade-gradient"></div>
+                     <img src = "${item.backgroundImage}"
+                     alt = "">
+                  </div>
+                  <div class="desc">
+                     <span class="exc-type">${item.type}</span>
+                     <span class="exc-name">${item.title}</span>
+                     <div class="desc-numbers">
+                        <span class="desc-number">
+                           <img src="sources/image/clock.svg" alt="Delay">
+                           ${item.time}
+                        </span>
+                        <span class="desc-number">
+                           <img src="sources/image/coins.svg" alt="Price">
+                           ${item.price} ₽
+                        </span>
+                     </div>
+                     <p>
+                        ${item.description}
+                     </p>
+                     <a href="#" class="basic-button">
+                        Подробнее
+                     </a>
+                  </div>
+               </div>
+`))
+
+calcSlideLine()
+//#endregion
+
 function calcSlideLine() {
    for (let i = 0; i < sliderLines.length; i++) {
       sliderLines[i].removeAttribute("style")
@@ -267,8 +391,5 @@ for (let i = 0; i < slidesVideoCover.length; i++) {
       setNextVideo();
    })
 }
-//#endregion
-
-//#region load data
 
 //#endregion
