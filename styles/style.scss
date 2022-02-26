@@ -1106,7 +1106,7 @@ $font-bold: bold;
 
    @include _910 {
       .contact-data {
-         width: 440px;
+         max-width: 440px;
          height: 640px;
          right: 0;
          padding-left: 70px;
@@ -1115,9 +1115,12 @@ $font-bold: bold;
    }
 
    @include _630 {
-      width: 375px;
       height: 928px;
       padding-top: 25px;
+
+      .contact-data {
+         width: 375px;
+      }
    }
 }
 

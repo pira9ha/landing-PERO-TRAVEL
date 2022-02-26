@@ -1514,7 +1514,7 @@ p {
 
 @media screen and (max-width: 910px) {
   .form-container .contact-data {
-    width: 440px;
+    max-width: 440px;
     height: 640px;
     right: 0;
     padding-left: 70px;
@@ -1524,9 +1524,11 @@ p {
 
 @media screen and (max-width: 630px) {
   .form-container {
-    width: 375px;
     height: 928px;
     padding-top: 25px;
+  }
+  .form-container .contact-data {
+    width: 375px;
   }
 }
 
