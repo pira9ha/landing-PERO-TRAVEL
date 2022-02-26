@@ -152,8 +152,9 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-transition: all ease 1s;
-  transition: all ease 1s;
+  cursor: pointer;
+  -webkit-transition: all ease .6s;
+  transition: all ease .6s;
 }
 
 .switch {
@@ -221,12 +222,23 @@ p {
   font-family: inherit;
   padding-bottom: 5px;
   background-color: transparent;
-  border-bottom: 1px solid #e42908 !important;
+  border-bottom: 1px solid rgba(228, 41, 8, 0.623) !important;
 }
 
-.invalid-input-value:focus {
-  outline: 0;
-  border-color: tomato;
+.invalid-input-value::-webkit-input-placeholder {
+  color: rgba(228, 41, 8, 0.623) !important;
+}
+
+.invalid-input-value:-ms-input-placeholder {
+  color: rgba(228, 41, 8, 0.623) !important;
+}
+
+.invalid-input-value::-ms-input-placeholder {
+  color: rgba(228, 41, 8, 0.623) !important;
+}
+
+.invalid-input-value::placeholder {
+  color: rgba(228, 41, 8, 0.623) !important;
 }
 
 .invalid-error-text {
@@ -711,6 +723,7 @@ p {
 }
 
 .section-width .videos-gallery .video-cover {
+  cursor: pointer;
   height: inherit;
   width: 360px;
   -o-object-fit: cover;
@@ -947,6 +960,7 @@ p {
       -ms-flex-pack: end;
           justify-content: flex-end;
   position: relative;
+  width: 100vw;
   height: 749px;
 }
 
@@ -988,6 +1002,14 @@ p {
 @media screen and (max-width: 630px) {
   .about-us .about {
     margin-top: 26px;
+  }
+  .about-us .bacground-image {
+    right: calc((100vw - 380px) / 2);
+    left: calc(-1 * (100vw - 380px) / 2);
+    width: 100vw;
+    height: inherit;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
   .about-us .description-card {
     font-size: 13px;
@@ -1286,8 +1308,8 @@ p {
   display: -ms-flexbox;
   display: flex;
   padding: 38px 45px;
-  width: 740px;
-  height: 322px;
+  min-width: 740px;
+  max-height: 322px;
   background-color: #ededed;
   border-radius: 10px;
   -webkit-transition: all ease 1s;
@@ -1297,8 +1319,22 @@ p {
   background-position: 525px 150px;
 }
 
+.reviews .review-card .description {
+  position: relative;
+}
+
+.reviews .review-card .text-overflow {
+  position: absolute;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(6%, #ededed), color-stop(20%, transparent));
+  background: linear-gradient(0deg, #ededed 6%, transparent 20%);
+  width: 100%;
+}
+
 .reviews .review-card p {
-  width: 395px;
+  width: 100%;
+  min-height: 90%;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .reviews .review-card > img {
@@ -1315,10 +1351,14 @@ p {
   .reviews {
     height: 755px;
   }
+  .reviews .text-overflow {
+    height: 100%;
+  }
   .reviews .review-card {
-    width: 505px;
-    height: 246px;
+    min-width: 505px;
     padding: 25px;
+    background-size: 140px;
+    background-position: 345px 105px;
   }
   .reviews .review-card > img {
     width: 168px;
@@ -1326,30 +1366,34 @@ p {
     margin-right: 25px;
   }
   .reviews .review-card p {
-    width: 269px;
+    max-height: 240px;
     font-size: 12px;
   }
 }
 
 @media screen and (max-width: 630px) {
   .reviews {
-    height: 920px;
+    height: 1000px;
   }
   .reviews .review-card {
-    width: 280px;
-    height: 447px;
+    min-width: 280px;
+    max-height: 530px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    background-position: 130px 350px;
   }
   .reviews .review-card img {
-    height: 80px;
-    width: 80px;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+    margin-right: 0;
     border-radius: 10px;
     margin-bottom: 20px;
   }
   .reviews .review-card p {
+    max-height: 240px;
     width: 228px;
     font-size: 13px;
   }
@@ -1396,22 +1440,18 @@ p {
 
 .form-container {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   height: 640px;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
 .form-container .contact-data {
+  margin-left: auto;
   height: 640px;
   width: 560px;
   background: rgba(0, 0, 0, 0.3);
   -webkit-backdrop-filter: blur(20px);
           backdrop-filter: blur(20px);
   padding-left: 105px;
+  padding-right: 105px;
   padding-top: 132px;
 }
 
@@ -1428,7 +1468,7 @@ p {
 }
 
 .form-container .contact-data input {
-  width: 360px;
+  width: 100%;
   border: 0;
   color: #fff;
   font-family: inherit;
@@ -1474,22 +1514,19 @@ p {
 
 @media screen and (max-width: 910px) {
   .form-container .contact-data {
-    width: 400px;
+    width: 440px;
     height: 640px;
     right: 0;
-    padding-left: 43px;
-  }
-  .form-container .contact-data input {
-    width: 316px;
+    padding-left: 70px;
+    padding-right: 70px;
   }
 }
 
 @media screen and (max-width: 630px) {
   .form-container {
+    width: 375px;
     height: 928px;
-  }
-  .form-container .contact-data {
-    margin-top: 25px;
+    padding-top: 25px;
   }
 }
 
