@@ -125,6 +125,28 @@ for (let i = 0; i < switchContainer.length; i++) {
          }
       }
    })
+
+   cards.addEventListener('ontouchstart', function (event) {
+
+      let startPosX = event.clientX;
+      let endPosX;
+
+      cards.ontouchend = function (event) {
+         onMouseMove(event.clientX)
+      };
+
+      function onMouseMove(event) {
+         endPosX = event;
+         if (endPosX - startPosX < -25) {
+            leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i)
+            offsetSlider(i)
+         }
+         if (endPosX - startPosX > 25) {
+            rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i)
+            offsetSlider(i)
+         }
+      }
+   })
 }
 
 function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
@@ -283,7 +305,7 @@ let excCards = [{
       time: "6 часов",
       price: "618",
       description: `Приглашаем вас на экскурсию<br>
-      "Обзорная по Большому Сочи": < br >
+      "Обзорная по Большому Сочи": <br>
          Экскурсия начнется с подъёма на гору Большой Ахун - это высшая точка(665 метров) на побережьи
       Сочи.На вершине горы Большой Ахун есть смотровая башня, построенная в 1935 - 36 годах по проекту
       архитектора С.И.Воробьева...`

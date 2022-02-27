@@ -1325,8 +1325,9 @@ p {
 
 .reviews .review-card .text-overflow {
   position: absolute;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(6%, #ededed), color-stop(20%, transparent));
-  background: linear-gradient(0deg, #ededed 6%, transparent 20%);
+  border-radius: 10px;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(5%, #ededed), color-stop(15%, transparent));
+  background: linear-gradient(0deg, #ededed 5%, transparent 15%);
   width: 100%;
 }
 
@@ -1352,6 +1353,9 @@ p {
     height: 755px;
   }
   .reviews .text-overflow {
+    top: 0;
+    left: 0;
+    z-index: 2;
     height: 100%;
   }
   .reviews .review-card {
