@@ -4,11 +4,15 @@
           box-sizing: border-box;
 }
 
+body {
+  width: 100vw;
+}
+
 body,
 a,
 button {
   font-family: 'Montserrat', sans-serif;
-  margin: 0;
+  margin: auto;
   font-size: 14px;
   font-weight: 500;
   color: #fff;

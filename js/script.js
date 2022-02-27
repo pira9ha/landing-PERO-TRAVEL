@@ -109,9 +109,9 @@ for (let i = 0; i < switchContainer.length; i++) {
       let startPosX = event.clientX;
       let endPosX;
 
-      cards.onpointerup = function (event) {
+      cards.addEventListener('pointerup', function (event) {
          onMouseMove(event.clientX)
-      };
+      });
 
       function onMouseMove(event) {
          endPosX = event;
