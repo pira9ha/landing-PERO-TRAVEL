@@ -935,7 +935,8 @@ $font-bold: bold;
 
       .text-overflow {
          position: absolute;
-         background: linear-gradient(0deg, #ededed 6%, transparent 20%);
+         border-radius: 10px;
+         background: linear-gradient(0deg, #ededed 5%, transparent 15%);
          width: 100%;
       }
 
@@ -961,6 +962,9 @@ $font-bold: bold;
       height: 755px;
 
       .text-overflow {
+         top: 0;
+         left: 0;
+         z-index: 2;
          height: 100%;
       }
 

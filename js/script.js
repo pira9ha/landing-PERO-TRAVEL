@@ -109,9 +109,31 @@ for (let i = 0; i < switchContainer.length; i++) {
       let startPosX = event.clientX;
       let endPosX;
 
-      cards.addEventListener('pointerup', function (event) {
+      cards.onpointerup = function (event) {
          onMouseMove(event.clientX)
-      });
+      };
+
+      function onMouseMove(event) {
+         endPosX = event;
+         if (endPosX - startPosX < -25) {
+            leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i)
+            offsetSlider(i)
+         }
+         if (endPosX - startPosX > 25) {
+            rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i)
+            offsetSlider(i)
+         }
+      }
+   })
+
+   cards.addEventListener('ontouchstart', function (event) {
+
+      let startPosX = event.clientX;
+      let endPosX;
+
+      cards.ontouchend = function (event) {
+         onMouseMove(event.clientX)
+      };
 
       function onMouseMove(event) {
          endPosX = event;
