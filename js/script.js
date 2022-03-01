@@ -104,49 +104,37 @@ for (let i = 0; i < switchContainer.length; i++) {
       offsetSlider(i)
    }
 
-   cards.addEventListener('pointerdown', function (event) {
+   let endPosX;
+
+   cards.addEventListener('mousedown', function (event) {
 
       let startPosX = event.clientX;
-      let endPosX;
 
-      cards.onpointerup = function (event) {
-         onMouseMove(event.clientX)
+      cards.onmouseup = function (event) {
+         onMouseMove(event.clientX, startPosX)
       };
-
-      function onMouseMove(event) {
-         endPosX = event;
-         if (endPosX - startPosX < -25) {
-            leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i)
-            offsetSlider(i)
-         }
-         if (endPosX - startPosX > 25) {
-            rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i)
-            offsetSlider(i)
-         }
-      }
    })
 
-   cards.addEventListener('ontouchstart', function (event) {
+   cards.addEventListener('touchstart', function (event) {
 
-      let startPosX = event.clientX;
-      let endPosX;
+      let startPosX = event.targetTouches[0].clientX;
 
       cards.ontouchend = function (event) {
-         onMouseMove(event.clientX)
+         onMouseMove(event.changedTouches[0].pageX, startPosX)
       };
-
-      function onMouseMove(event) {
-         endPosX = event;
-         if (endPosX - startPosX < -25) {
-            leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i)
-            offsetSlider(i)
-         }
-         if (endPosX - startPosX > 25) {
-            rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i)
-            offsetSlider(i)
-         }
-      }
    })
+
+   function onMouseMove(event, start) {
+      endPosX = event;
+      if (endPosX - start < -100) {
+         leftOffsetCard(cards, batons[i].lastElementChild, batons[i].firstElementChild, i)
+         offsetSlider(i)
+      }
+      if (endPosX - start > 100) {
+         rightOffsetCard(cards, batons[i].firstElementChild, batons[i].lastElementChild, i)
+         offsetSlider(i)
+      }
+   }
 }
 
 function leftOffsetCard(cards, btnNext, btnPrev, marginIndex) {
