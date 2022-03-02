@@ -227,7 +227,8 @@ let validationText = document.createElement('span');
 validationText.className = "invalid-error-text";
 validationText.innerHTML = 'Поле не должно быть пустым!';
 
-form.addEventListener("submit", function (event) {
+form.addEventListener("submit", (event) => {
+   event.preventDefault();
    if (!phoneInput.value || !nameInput.value || !emailInput.value) {
 
       if (!phoneInput.value) {
@@ -242,7 +243,8 @@ form.addEventListener("submit", function (event) {
          emailInput.classList.add('invalid-input-value');
          emailInput.after(validationText.cloneNode(true));
       }
-      event.preventDefault();
+   } else {
+      form.submit()
    }
 })
 
@@ -285,75 +287,23 @@ window.addEventListener('scroll', function () {
 
 //#region helpers
 
-//#region objects
-let excCards = [{
-      backgroundImage: 'sources/image/exc-1.png',
-      type: "Автобусный тур",
-      title: "Обзорная по Сочи (из Адлера)",
-      time: "6 часов",
-      price: "618",
-      description: `Приглашаем вас на экскурсию<br>
-      "Обзорная по Большому Сочи": <br>
-         Экскурсия начнется с подъёма на гору Большой Ахун - это высшая точка(665 метров) на побережьи
-      Сочи.На вершине горы Большой Ахун есть смотровая башня, построенная в 1935 - 36 годах по проекту
-      архитектора С.И.Воробьева...`
-   },
-   {
-      backgroundImage: 'sources/image/exc-2.png',
-      type: "Конный тур",
-      title: "Конные прогулки",
-      time: "1,5 часа",
-      price: "1 809",
-      description: `Конные прогулки проходят в Лазурной долине. С долины открывается красивый вид на море, горы и
-      лес.На всем пути следования экскурсии вас будут сопровождать опытные инструктора.Катание на
-      лошадях или иппотерапия очень полезна для детей и взрослых...`
-   }, {
-      backgroundImage: 'sources/image/exc-3.png',
-      type: "Квадротур",
-      title: "Пасть дракона",
-      time: "2,5 часа",
-      price: "3 515",
-      description: `Маршрут на Квадроциклах проходит по горной реке Мзымта вдоль белых скал и самшитовый лес к
-                        водопаду Глубокий Яр или "Пасть Дракона" (экскурсионное название).
-                        <br>
-                        Высота водопада 41,5 метр - это один из самых высоких водопадов Большого Сочи...`
-   }, {
-      backgroundImage: 'sources/image/exc-4.png',
-      type: "Автобусный тур",
-      title: "Женский монастырь",
-      time: "4 часа",
-      price: "618",
-      description: `Троице - Георгиевский женский монастырь расположен в селе Лесное в живописном месте, в котором
-                        гармонично сочетаются красота природы и красота архитектуры сотворенная руками человека.
-                        <br>
-                        Это удивительное место расположено совсем недалеко от Чёрного моря - всего в 20 километрах`
-   }, {
-      backgroundImage: 'sources/image/exc-5.png',
-      type: "Автобусный тур",
-      title: "Женский монастырь",
-      time: "4 часа",
-      price: "999",
-      description: `Троице - Георгиевский женский монастырь расположен в селе Лесное в живописном месте, в котором
-                        гармонично сочетаются красота природы и красота архитектуры сотворенная руками человека.
-                        <br>
-                        Это удивительное место расположено совсем недалеко от Чёрного моря - всего в 20 километрах`
-   }, {
-      backgroundImage: 'sources/image/exc-6.png',
-      type: "Автобусный тур",
-      title: "Женский монастырь",
-      time: "2 часа",
-      price: "549",
-      description: `Троице - Георгиевский женский монастырь расположен в селе Лесное в живописном месте, в котором
-                        гармонично сочетаются красота природы и красота архитектуры сотворенная руками человека.
-                        <br>
-                        Это удивительное место расположено совсем недалеко от Чёрного моря - всего в 20 километрах`
-   },
-]
-//#endregion
 
 //#region load data
-excCards.forEach(item =>
-   excCardsGallery.insertAdjacentHTML('beforeend', `
+
+loadCards();
+
+async function loadCards() {
+   let obj = await fetch('https://glacial-basin-63418.herokuapp.com/', {
+      credentials: "include"
+   })
+   let excCards = await obj.json()
+   render(excCards)
+   calcSlideLine()
+}
+
+function render(cards) {
+   cards.forEach(item =>
+      excCardsGallery.insertAdjacentHTML('beforeend', `
 <div class="exc-card card">
                   <div class="exc-card__background align-center">
                      <div class="shade-gradient"></div>
@@ -382,8 +332,7 @@ excCards.forEach(item =>
                   </div>
                </div>
 `))
-
-calcSlideLine()
+}
 //#endregion
 
 function calcSlideLine() {
